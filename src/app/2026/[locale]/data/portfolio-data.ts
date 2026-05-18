@@ -5,44 +5,29 @@ export const SKILLS = [
     category: "3D & Creative",
     items: [
       { name: "Blender", icon: "🎨" },
-      { name: "Maya", icon: "🧊" },
-      { name: "Cinema 4D", icon: "🔵" },
-      { name: "ZBrush", icon: "🖌️" },
       { name: "Substance", icon: "🎭" },
       { name: "Unreal Engine", icon: "🎮" },
+      { name: "Pixel Bridge", icon: "🌉" },
     ],
   },
   {
     category: "UI/UX & Design",
     items: [
       { name: "Figma", icon: "✏️" },
-      { name: "Adobe XD", icon: "🟥" },
-      { name: "Sketch", icon: "💎" },
       { name: "Photoshop", icon: "🖼️" },
       { name: "Illustrator", icon: "🔷" },
-      { name: "After Effects", icon: "🎬" },
+      { name: "Trello", icon: "📋" },
     ],
   },
   {
     category: "Systems & Analysis",
     items: [
-      { name: "UML / BPMN", icon: "📊" },
-      { name: "Lucidchart", icon: "🗺️" },
-      { name: "Power BI", icon: "📈" },
-      { name: "Jira", icon: "🔧" },
-      { name: "Confluence", icon: "📝" },
-      { name: "Visio", icon: "🔲" },
-    ],
-  },
-  {
-    category: "Dev & Tools",
-    items: [
-      { name: "HTML / CSS", icon: "🌐" },
-      { name: "JavaScript", icon: "🟡" },
-      { name: "SQL", icon: "🗃️" },
-      { name: "Git", icon: "🌿" },
-      { name: "VS Code", icon: "💻" },
-      { name: "Postman", icon: "📮" },
+      { name: "Tableau", icon: "📉" },
+      { name: "Google Analytics", icon: "📈" },
+      { name: "Power BI", icon: "📊" },
+      { name: "TFS", icon: "🔧" },
+      { name: "Microsoft Apps", icon: "🪟" },
+      { name: "Trello", icon: "📋" },
     ],
   },
 ];
@@ -88,8 +73,10 @@ export const PROJECTS: {
   description: string;
   stack: string[];
   gradient: string;
-  mockups: { label: string; image?: string }[];
+  mockups: { label: string; image?: string; note?: string }[];
   link?: string;
+  credit?: string;
+  carouselLabel?: string;
 }[] = [
   {
     slug: "clinictrack",
@@ -169,6 +156,33 @@ export const PROJECTS: {
       { label: "Projects Page" },
       { label: "Dark Mode" },
       { label: "Mobile Responsive" },
+    ],
+  },
+  {
+    slug: "exodia-3d-game-assets",
+    title: "Exodia VR Platform — 3D Game Assets",
+    type: "3D / Visualization",
+    role: "3D Modeller & Substance Painter",
+    description:
+      "A sample of my 3D model contributions from the company that helped me mold my skills in 3D modelling.",
+    stack: ["Blender", "Substance Painter", "Retopology", "PBR Texturing"],
+    gradient: "from-orange-800 to-amber-500",
+    credit: "In collaboration with Exodia Game Development Studio",
+    carouselLabel: "Daily Activities at the Studio",
+    mockups: [
+      {
+        label: "VR Spacecraft",
+        image: "/projects/exodia/spacecraft.jpg",
+      },
+      {
+        label: "Spartan Battle Helmet",
+        image: "/projects/exodia/spartan-helmet.jpg",
+      },
+      {
+        label: "Silvana's Scepter",
+        image: "/projects/exodia/silvana-scepter.jpg",
+        note: "Rochenette's contribution — Silvana's Scepter (spiral weapon). Other assets in scene by Exodia team.",
+      },
     ],
   },
 ];

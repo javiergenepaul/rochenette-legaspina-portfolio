@@ -44,8 +44,8 @@ export function ExperienceSection({ category, theme, mode }: ExperienceSectionPr
               </div>
               <ul style={{ margin: "6px 0 0", paddingLeft: "14px", listStyleType: "disc", display: "flex", flexDirection: "column", gap: "2px" }}>
                 {entry.bullets.resume.map((b, i) => (
-                  <li key={i} style={{ fontSize: "11px", color: bulletColor, lineHeight: 1.55 }}>{b}</li>
-                ))}
+                <li key={i} style={{ fontSize: "11px", color: bulletColor, lineHeight: 1.55 }}>{b}</li>
+              ))}
               </ul>
             </div>
           ))}

@@ -332,6 +332,14 @@ img {
   0%,100% { transform: translateY(0) scale(1); }
   50%      { transform: translateY(-28px) scale(1.04); }
 }
+@keyframes float {
+  0%,100% { transform: translateY(0px); }
+  50%     { transform: translateY(-8px); }
+}
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
 @keyframes scroll-bob {
   0%,100% { transform: translateX(-50%) translateY(0); }
   50%      { transform: translateX(-50%) translateY(8px); }

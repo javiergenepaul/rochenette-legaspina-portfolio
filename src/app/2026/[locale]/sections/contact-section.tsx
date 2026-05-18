@@ -4,7 +4,7 @@ import React from "react";
 import { z } from "zod";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { Send, Mail, Linkedin, Github, ChevronRight } from "lucide-react";
+import { Send, Mail, Linkedin, ChevronRight } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { useToast } from "@/hooks/use-toast";
 
@@ -37,8 +37,8 @@ const CONTACT_LINKS = [
   {
     Icon: Mail,
     label: "Email",
-    value: "rochenette@email.com",
-    href: "mailto:rochenette@email.com",
+    value: "rochenettelegaspina18@gmail.com",
+    href: "mailto:rochenettelegaspina18@gmail.com",
     sub: "Best for project enquiries",
   },
   {
@@ -47,13 +47,6 @@ const CONTACT_LINKS = [
     value: "linkedin.com/in/rochenette-legaspina-677a64263",
     href: "https://www.linkedin.com/in/rochenette-legaspina-677a64263/",
     sub: "Connect professionally",
-  },
-  {
-    Icon: Github,
-    label: "GitHub",
-    value: "github.com/rochenette",
-    href: "https://github.com/rochenette",
-    sub: "See my open source work",
   },
 ] as const;
 

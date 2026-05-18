@@ -1,6 +1,6 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
-import { FolderOpen, User2, Tag, Layers, ChevronRight } from "lucide-react";
+import { FolderOpen, User2, Tag, Layers, ChevronRight, Users } from "lucide-react";
 import { PROJECTS } from "../../data/portfolio-data";
 import MockupCarousel from "@/components/2026/mockup-carousel";
 import { thumbBg } from "@/lib/project-utils";
@@ -129,8 +129,18 @@ export default async function ProjectDetailPage({
               </div>
             </div>
 
+            {/* Credit */}
+            {project.credit && (
+              <div className="flex items-center gap-2 px-4 py-3 rounded-xl bg-amethyst-50 dark:bg-amethyst-500/10 border border-amethyst-100 dark:border-amethyst-500/25">
+                <Users size={14} className="text-amethyst-500 shrink-0" strokeWidth={1.75} />
+                <p className="text-[0.78rem] text-amethyst-600 dark:text-amethyst-300 font-medium">
+                  {project.credit}
+                </p>
+              </div>
+            )}
+
             {/* Mockup carousel */}
-            <MockupCarousel mockups={project.mockups} gradient={project.gradient} />
+            <MockupCarousel mockups={project.mockups} gradient={project.gradient} label={project.carouselLabel} />
           </div>
         </div>
 

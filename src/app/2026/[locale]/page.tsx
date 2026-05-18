@@ -2,10 +2,11 @@ import {
   HeroSection,
   AboutSection,
   SkillsSection,
+  WorkSection,
   EducationSection,
   ProjectsSection,
   BooksSection,
-  TestimonialsSection,
+  GallerySection,
   ApproachSection,
   ContactSection,
 } from "./sections";
@@ -16,11 +17,12 @@ export default function Home2026() {
       <HeroSection />
       <AboutSection />
       <SkillsSection />
+      <WorkSection />
       <EducationSection />
       <ProjectsSection />
       <BooksSection />
-      <TestimonialsSection />
       <ApproachSection />
+      <GallerySection />
       <ContactSection />
     </main>
   );

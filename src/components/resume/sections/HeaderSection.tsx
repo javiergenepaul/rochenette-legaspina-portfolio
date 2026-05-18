@@ -24,7 +24,7 @@ export function HeaderSection({ category, theme, mode }: HeaderSectionProps) {
         <div style={{ fontSize: "24px", fontWeight: 700, color: textMain }}>{info.name}</div>
         <div style={{ fontSize: "12.5px", color: textSub, margin: "3px 0 10px", fontWeight: 500 }}>{title}</div>
         <div style={{ display: "flex", flexWrap: "wrap", gap: "4px 10px", fontSize: "10.5px", color: textSub }}>
-          {[info.email, info.location, info.linkedin, info.behance, info.portfolio].map((v, i, arr) => (
+          {[info.email, info.location, info.linkedin, info.portfolio].map((v, i, arr) => (
             <span key={v} style={{ display: "inline-flex", alignItems: "center", gap: "10px" }}>
               {v}{i < arr.length - 1 && <span style={{ opacity: 0.4 }}>•</span>}
             </span>
@@ -40,7 +40,6 @@ export function HeaderSection({ category, theme, mode }: HeaderSectionProps) {
     { label: "Email",     value: info.email },
     { label: "Location",  value: info.location },
     { label: "LinkedIn",  value: info.linkedin },
-    { label: "Behance",   value: info.behance },
     { label: "Portfolio", value: info.portfolio },
   ];
 

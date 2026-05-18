@@ -1,14 +1,13 @@
 "use client";
 
-import { Github, Linkedin, Mail, Heart } from "lucide-react";
+import { Linkedin, Mail, Heart } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { useTheme } from "next-themes";
 import { useState, useEffect } from "react";
 
 const SOCIAL = [
-  { href: "mailto:rochenette@email.com",               Icon: Mail,     label: "Email" },
-  { href: "https://linkedin.com/in/rochenette-legaspina", Icon: Linkedin, label: "LinkedIn" },
-  { href: "https://github.com/rochenette",              Icon: Github,   label: "GitHub" },
+  { href: "mailto:rochenettelegaspina18@gmail.com",                        Icon: Mail,     label: "Email" },
+  { href: "https://www.linkedin.com/in/rochenette-legaspina-677a64263/",   Icon: Linkedin, label: "LinkedIn" },
 ] as const;
 
 export default function Footer2026() {

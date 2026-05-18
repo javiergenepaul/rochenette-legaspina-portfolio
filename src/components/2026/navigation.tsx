@@ -5,8 +5,8 @@ import { useRouter, usePathname } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 import {
   User, Wrench, GraduationCap, FolderOpen,
-  BookOpen, MessageCircle, Compass, Send,
-  Sun, Moon, ChevronDown, AlignJustify, X,
+  BookOpen, Compass, Send,
+  Sun, Moon, ChevronDown, AlignJustify, X, Briefcase,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { use2026UIStore } from "@/app/2026/store/ui-store";
@@ -14,11 +14,12 @@ import { use2026UIStore } from "@/app/2026/store/ui-store";
 const NAV_LINKS = [
   { href: "#about",        label: "About",       Icon: User },
   { href: "#skills",       label: "Skills",      Icon: Wrench },
+  { href: "#work",         label: "Experience",  Icon: Briefcase },
   { href: "#education",    label: "Education",   Icon: GraduationCap },
   { href: "#projects",     label: "Projects",    Icon: FolderOpen },
   { href: "#books",        label: "Books",       Icon: BookOpen },
-  { href: "#testimonials", label: "Reviews",     Icon: MessageCircle },
   { href: "#approach",     label: "Approach",    Icon: Compass },
+  { href: "#gallery",      label: "Explorer",    Icon: Compass },
 ] as const;
 
 const LOCALES = [

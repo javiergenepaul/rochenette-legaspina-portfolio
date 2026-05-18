@@ -3,7 +3,7 @@ import { GraduationCap, Award, Building2, Calendar, ChevronRight, Terminal } fro
 import { cn } from "@/lib/utils";
 import { EDUCATION_EXPERIENCE, CERTIFICATION_EXPERIENCE, LINK_URL } from "@/config";
 
-export default function EducationSection2026() {
+export default function EducationSection2026About() {
   const edu = EDUCATION_EXPERIENCE[0];
 
   return (
@@ -19,7 +19,6 @@ export default function EducationSection2026() {
           backgroundSize: "26px 26px",
         }}
       />
-      {/* Ambient glow */}
       <div className="absolute top-1/2 right-[15%] w-80 h-80 bg-amethyst-500/5 rounded-full blur-[100px] pointer-events-none" />
 
       <div className="relative z-10">
@@ -40,7 +39,7 @@ export default function EducationSection2026() {
           Formal education and professional certifications that built the technical foundation behind my work.
         </p>
 
-        {/* ── Degree ────────────────────────────────────────────────────── */}
+        {/* ── Degree ─────────────────────────────────────────────────────── */}
         <div className="mb-10">
           <div className="flex items-center gap-2 font-mono text-[0.66rem] text-white/30 uppercase tracking-[2px] mb-4">
             <GraduationCap size={12} className="text-amethyst-500" strokeWidth={1.75} />
@@ -61,29 +60,18 @@ export default function EducationSection2026() {
               "hover:shadow-[0_0_48px_rgba(211,47,47,0.10)]"
             )}
           >
-            {/* Left glow bar */}
             <div className="absolute left-0 top-0 bottom-0 w-0.5 bg-linear-to-b from-transparent via-amethyst-500 to-transparent" />
 
-            {/* Logo */}
             <div className="shrink-0 flex items-start justify-center sm:justify-start">
-              <div className="w-14 h-14 rounded-[12px] overflow-hidden bg-white/10 flex items-center justify-center">
-                <Image
-                  src={edu.image}
-                  alt={edu.imageAlt}
-                  width={56}
-                  height={56}
-                  className="object-contain w-full h-full"
-                />
+              <div className="w-14 h-14 rounded-xl overflow-hidden bg-white/10 flex items-center justify-center">
+                <Image src={edu.image} alt={edu.imageAlt} width={56} height={56} className="object-contain w-full h-full" />
               </div>
             </div>
 
-            {/* Content */}
             <div className="flex flex-col gap-2 flex-1">
               <div className="flex items-start justify-between gap-2 flex-wrap">
                 <div>
-                  <h3 className="font-poppins font-bold text-[0.95rem] text-white">
-                    {edu.title}
-                  </h3>
+                  <h3 className="font-poppins font-bold text-[0.95rem] text-white">{edu.title}</h3>
                   <div className="flex items-center gap-1 text-amethyst-400 font-medium text-[0.74rem] mt-0.5">
                     <Building2 size={11} strokeWidth={1.75} />
                     {edu.subTitle}
@@ -94,20 +82,11 @@ export default function EducationSection2026() {
                   {edu.startDate?.format("YYYY")} — {edu.endDate?.format("YYYY")}
                 </span>
               </div>
-
               <div className="h-px bg-white/6 my-1" />
-
               <ul className="flex flex-col gap-1.5">
                 {edu.description.map((item, i) => (
-                  <li
-                    key={i}
-                    className="flex gap-2 text-[0.79rem] text-white/50 leading-[1.65]"
-                  >
-                    <ChevronRight
-                      size={13}
-                      className="text-amethyst-500 shrink-0 mt-0.5"
-                      strokeWidth={2}
-                    />
+                  <li key={i} className="flex gap-2 text-[0.79rem] text-white/50 leading-[1.65]">
+                    <ChevronRight size={13} className="text-amethyst-500 shrink-0 mt-0.5" strokeWidth={2} />
                     {item}
                   </li>
                 ))}
@@ -116,7 +95,7 @@ export default function EducationSection2026() {
           </a>
         </div>
 
-        {/* ── Certifications ────────────────────────────────────────────── */}
+        {/* ── Certifications ─────────────────────────────────────────────── */}
         <div>
           <div className="flex items-center gap-2 font-mono text-[0.66rem] text-white/30 uppercase tracking-[2px] mb-4">
             <Award size={12} className="text-amethyst-500" strokeWidth={1.75} />
@@ -137,25 +116,13 @@ export default function EducationSection2026() {
                 )}
               >
                 <div className="absolute left-0 top-0 bottom-0 w-0.5 bg-linear-to-b from-transparent via-amethyst-500/50 to-transparent" />
-
-                {/* Logo */}
                 <div className="shrink-0">
                   <div className="w-12 h-12 rounded-[10px] overflow-hidden bg-white/10 flex items-center justify-center">
-                    <Image
-                      src={cert.image}
-                      alt={cert.imageAlt}
-                      width={48}
-                      height={48}
-                      className="object-contain w-full h-full"
-                    />
+                    <Image src={cert.image} alt={cert.imageAlt} width={48} height={48} className="object-contain w-full h-full" />
                   </div>
                 </div>
-
-                {/* Content */}
                 <div className="flex flex-col gap-1.5 flex-1">
-                  <h3 className="font-poppins font-bold text-[0.88rem] text-white">
-                    {cert.title}
-                  </h3>
+                  <h3 className="font-poppins font-bold text-[0.88rem] text-white">{cert.title}</h3>
                   <div className="flex items-center gap-1 text-amethyst-400 text-[0.73rem] font-medium">
                     <Building2 size={11} strokeWidth={1.75} />
                     {cert.subTitle}
@@ -163,15 +130,8 @@ export default function EducationSection2026() {
                   <div className="h-px bg-white/6 my-0.5" />
                   <ul className="flex flex-col gap-1">
                     {cert.description.slice(0, 3).map((item, i) => (
-                      <li
-                        key={i}
-                        className="flex gap-2 text-[0.75rem] text-white/45 leading-[1.6]"
-                      >
-                        <ChevronRight
-                          size={12}
-                          className="text-amethyst-500/70 shrink-0 mt-0.5"
-                          strokeWidth={2}
-                        />
+                      <li key={i} className="flex gap-2 text-caption text-white/45 leading-[1.6]">
+                        <ChevronRight size={12} className="text-amethyst-500/70 shrink-0 mt-0.5" strokeWidth={2} />
                         {item}
                       </li>
                     ))}

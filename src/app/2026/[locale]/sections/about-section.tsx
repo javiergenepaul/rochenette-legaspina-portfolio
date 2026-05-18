@@ -19,17 +19,17 @@ const CHAPTERS = [
   {
     Icon: Clock,
     title: "The Beginning — 3D Modeling",
-    body: "It started with Blender. Shaping geometry, composing scenes, and obsessing over proportion gave me a visual language and a craftsman's patience that quietly underpins everything I do today.",
+    body: "It started with Blender. From getting proportions right to modeling objects from scratch — I worked my way up to baking realistic textures in Substance Painter. That chapter of hands-on 3D work is where it all began, and where I left it to grow further.",
   },
   {
     Icon: TrendingUp,
     title: "Growing Into — UI/UX Design",
-    body: "That same spatial awareness translated into designing interfaces. With Figma, Sketch, and Adobe Suite, I learned to center the user in every decision — turning complexity into clarity.",
+    body: "From 3D shapes to screen layouts. I moved into Figma and started designing user flows, wireframes, and high-fidelity screens for real products — learning that good design is just as much about how it works as how it looks.",
   },
   {
     Icon: MapPin,
     title: "Where I Am Now — Systems Analysis",
-    body: "Curiosity about why systems work the way they do led me here. Today I bridge people, processes, and technology — designing solutions that are technically sound and human-centered.",
+    body: "Before I build anything, I listen — because the right solution means nothing if it's solving the wrong problem. I document requirements, map out business processes, and make sure what the client needs is exactly what gets built — nothing lost between the idea and the product.",
   },
 ];
 

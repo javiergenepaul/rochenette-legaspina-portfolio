@@ -12,9 +12,11 @@ export { thumbBg } from "@/lib/project-utils";
 export default function MockupCarousel({
   mockups,
   gradient,
+  label = "Mockups & Screenshots",
 }: {
-  mockups: { label: string; image?: string }[];
+  mockups: { label: string; image?: string; note?: string }[];
   gradient: string;
+  label?: string;
 }) {
   const [slide, setSlide] = useState(0);
   const [direction, setDirection] = useState(1);
@@ -38,7 +40,7 @@ export default function MockupCarousel({
   return (
     <div className="flex flex-col gap-3">
       <p className="text-[0.68rem] text-amethyst-500 font-poppins font-bold uppercase tracking-wide">
-        Mockups &amp; Screenshots
+        {label}
       </p>
 
       <div className="relative rounded-[14px] overflow-hidden bg-woodsmoke-950 aspect-video select-none">
@@ -121,6 +123,12 @@ export default function MockupCarousel({
             />
           ))}
         </div>
+      )}
+
+      {current.note && (
+        <p className="text-[0.72rem] text-woodsmoke-400 dark:text-woodsmoke-500 leading-snug italic px-1">
+          {current.note}
+        </p>
       )}
     </div>
   );
