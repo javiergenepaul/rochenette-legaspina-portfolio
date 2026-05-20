@@ -54,12 +54,12 @@ export function CertificationsSection({ category, theme, mode }: CertificationsS
   }
 
   // ── Modern — compact sidebar style ────────────────────────────────────────
-  const accent     = "var(--amethyst-500)";
-  const textMain   = isDark ? "#e8d5ff" : "var(--amethyst-900)";
-  const textSub    = isDark ? "#bbb"    : "var(--amethyst-700)";
-  const textBody   = isDark ? "#ccc"    : "var(--amethyst-800)";
+  const accent     = "#D32F2F";
+  const textMain   = isDark ? "#e8d5ff" : "#651313";
+  const textSub    = isDark ? "#bbb"    : "#B71C1C";
+  const textBody   = isDark ? "#ccc"    : "#8B1A1A";
   const cardBg     = isDark ? "rgba(255,255,255,0.05)" : "#fff";
-  const cardBorder = isDark ? "rgba(255,255,255,0.10)" : "var(--amethyst-200)";
+  const cardBorder = isDark ? "rgba(255,255,255,0.10)" : "#EF9A9A";
 
   return (
     <section style={{ marginBottom: "24px" }}>
@@ -79,23 +79,14 @@ export function CertificationsSection({ category, theme, mode }: CertificationsS
               border: `1px solid ${cardBorder}`,
               borderRadius: "5px",
               padding: "10px 12px",
+              breakInside: "avoid",
+              pageBreakInside: "avoid",
             }}
           >
             <div style={{ fontSize: "10.5px", fontWeight: 700, color: textMain }}>{entry.title}</div>
             <div style={{ fontSize: "9.5px", color: textSub, marginTop: "2px" }}>{entry.org}</div>
             {entry.period && (
-              <div
-                style={{
-                  display: "inline-block",
-                  fontSize: "9px",
-                  fontWeight: 600,
-                  color: "#fff",
-                  backgroundColor: accent,
-                  padding: "1px 6px",
-                  borderRadius: "3px",
-                  marginTop: "5px",
-                }}
-              >
+              <div style={{ fontSize: "9px", fontWeight: 600, color: accent, marginTop: "3px" }}>
                 {entry.period}
               </div>
             )}

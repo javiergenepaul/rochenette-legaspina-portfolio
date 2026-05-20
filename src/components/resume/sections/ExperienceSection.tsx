@@ -58,8 +58,8 @@ export function ExperienceSection({ category, theme, mode }: ExperienceSectionPr
   const textMain    = isDark ? "#f0f0f0" : "#1a1a1a";
   const textSub     = isDark ? "#bbb"    : "#555";
   const bulletColor = isDark ? "#ccc"    : "#444";
-  const accent      = "var(--amethyst-500)";
-  const accentLight = isDark ? "var(--amethyst-800)" : "var(--amethyst-100)";
+  const accent      = "#D32F2F";
+  const accentLight = isDark ? "#8B1A1A" : "#FFCDD2";
 
   return (
     <section style={{ marginBottom: "26px" }}>
@@ -84,9 +84,11 @@ export function ExperienceSection({ category, theme, mode }: ExperienceSectionPr
           <div
             key={entry.company}
             style={{
-              borderLeft: `2px solid var(--amethyst-200)`,
+              borderLeft: `2px solid #EF9A9A`,
               paddingLeft: "14px",
               position: "relative",
+              breakInside: "avoid",
+              pageBreakInside: "avoid",
             }}
           >
             {/* Timeline dot */}
@@ -117,10 +119,7 @@ export function ExperienceSection({ category, theme, mode }: ExperienceSectionPr
               <span
                 style={{
                   fontSize: "10px",
-                  color: "#fff",
-                  backgroundColor: accent,
-                  padding: "2px 8px",
-                  borderRadius: "3px",
+                  color: accent,
                   whiteSpace: "nowrap",
                   flexShrink: 0,
                   fontWeight: 600,

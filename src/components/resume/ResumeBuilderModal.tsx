@@ -180,19 +180,51 @@ export function ResumeBuilderModal({ trigger, open: controlledOpen, onOpenChange
   const handleDownload = useCallback(async () => {
     setIsDownloading(true);
     try {
-      const html2pdf = (await import("html2pdf.js")).default;
-      const element  = document.getElementById("resume-content");
+      const [{ default: html2canvas }, { jsPDF }] = await Promise.all([
+        import("html2canvas"),
+        import("jspdf"),
+      ]);
+
+      const element = document.getElementById("resume-content");
       if (!element) return;
-      await html2pdf()
-        .set({
-          margin: 0,
-          filename: `rochenette-legaspina-${category}-resume.pdf`,
-          image: { type: "jpeg", quality: 0.98 },
-          html2canvas: { scale: 2, useCORS: true },
-          jsPDF: { unit: "mm", format: "a4", orientation: "portrait" },
-        })
-        .from(element)
-        .save();
+
+      await document.fonts.ready;
+
+      const canvas = await html2canvas(element, {
+        scale: 2,
+        useCORS: true,
+        letterRendering: true,
+        logging: false,
+        backgroundColor: "#ffffff",
+      });
+
+      const A4_W_MM  = 210;
+      const A4_H_MM  = 297;
+      const pdf      = new jsPDF({ unit: "mm", format: "a4", orientation: "portrait" });
+      const imgData  = canvas.toDataURL("image/jpeg", 0.98);
+
+      // Scale image to fit A4 width; split across pages if needed
+      const pxPerMm  = canvas.width / A4_W_MM;
+      const totalH   = canvas.height / pxPerMm;
+      let remaining  = totalH;
+      let srcY       = 0;
+
+      while (remaining > 0) {
+        const sliceH = Math.min(remaining, A4_H_MM);
+        if (srcY > 0) pdf.addPage();
+        pdf.addImage(
+          imgData,
+          "JPEG",
+          0,
+          -(srcY),
+          A4_W_MM,
+          totalH,
+        );
+        srcY      += sliceH;
+        remaining -= sliceH;
+      }
+
+      pdf.save(`rochenette-legaspina-${category}-resume.pdf`);
     } catch (err) {
       console.error("PDF download failed:", err);
     } finally {

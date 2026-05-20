@@ -67,8 +67,8 @@ function ModernLayout({ category, theme, mode, activeSections }: ResumeRendererP
   const sidebarSections = activeSections.filter((s) => s.column === "sidebar");
 
   // ── Colour tokens via CSS variables (year-aware) ──────────────────────────
-  const headerBg      = isDark ? "var(--amethyst-950)" : "var(--amethyst-900)";
-  const sidebarBg     = isDark ? "var(--amethyst-950)" : "var(--amethyst-50)";
+  const headerBg      = isDark ? "#3A0000" : "#651313";
+  const sidebarBg     = isDark ? "#3A0000" : "#FFF0F0";
   const mainBg        = isDark ? "#18151f"              : "#ffffff";
   const bodyBg        = isDark ? "#18151f"              : "#ffffff";
 

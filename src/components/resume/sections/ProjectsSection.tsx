@@ -64,12 +64,12 @@ export function ProjectsSection({ category, theme, mode }: ProjectsSectionProps)
   const textMain    = isDark ? "#f0f0f0" : "#1a1a1a";
   const textSub     = isDark ? "#bbb"    : "#555";
   const bulletColor = isDark ? "#ccc"    : "#444";
-  const accent      = "var(--amethyst-500)";
-  const cardBg      = isDark ? "rgba(255,255,255,0.04)" : "var(--amethyst-50)";
-  const cardBorder  = isDark ? "rgba(255,255,255,0.08)" : "var(--amethyst-100)";
+  const accent      = "#D32F2F";
+  const cardBg      = isDark ? "rgba(255,255,255,0.04)" : "#FFF0F0";
+  const cardBorder  = isDark ? "rgba(255,255,255,0.08)" : "#FFCDD2";
   const tagBg       = isDark ? "rgba(255,255,255,0.08)" : "#fff";
-  const tagBorder   = "var(--amethyst-300)";
-  const tagText     = "var(--amethyst-700)";
+  const tagBorder   = "#E57373";
+  const tagText     = "#B71C1C";
 
   return (
     <section style={{ marginBottom: "26px" }}>
@@ -90,6 +90,8 @@ export function ProjectsSection({ category, theme, mode }: ProjectsSectionProps)
               border: `1px solid ${cardBorder}`,
               borderRadius: "6px",
               padding: "12px 14px",
+              breakInside: "avoid",
+              pageBreakInside: "avoid",
             }}
           >
             {/* Title row */}
@@ -105,23 +107,8 @@ export function ProjectsSection({ category, theme, mode }: ProjectsSectionProps)
 
             {/* Tool tags */}
             {project.tools.length > 0 && (
-              <div style={{ display: "flex", flexWrap: "wrap", gap: "4px", marginBottom: "8px" }}>
-                {project.tools.map((t) => (
-                  <span
-                    key={t}
-                    style={{
-                      fontSize: "9.5px",
-                      padding: "1px 7px",
-                      borderRadius: "3px",
-                      border: `1px solid ${tagBorder}`,
-                      backgroundColor: tagBg,
-                      color: tagText,
-                      fontWeight: 600,
-                    }}
-                  >
-                    {t}
-                  </span>
-                ))}
+              <div style={{ fontSize: "9.5px", color: tagText, fontWeight: 600, marginBottom: "6px" }}>
+                {project.tools.join(" · ")}
               </div>
             )}
 

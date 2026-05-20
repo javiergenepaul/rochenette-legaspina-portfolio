@@ -49,11 +49,11 @@ export function EducationSection({ category: _category, theme, mode }: Education
   }
 
   // ── Modern — compact sidebar style ────────────────────────────────────────
-  const accent   = "var(--amethyst-500)";
-  const textMain = isDark ? "#e8d5ff" : "var(--amethyst-900)";
-  const textSub  = isDark ? "#bbb"    : "var(--amethyst-700)";
-  const textBody = isDark ? "#ccc"    : "var(--amethyst-800)";
-  const groupLabel = isDark ? "rgba(255,255,255,0.45)" : "var(--amethyst-400)";
+  const accent   = "#D32F2F";
+  const textMain = isDark ? "#e8d5ff" : "#651313";
+  const textSub  = isDark ? "#bbb"    : "#B71C1C";
+  const textBody = isDark ? "#ccc"    : "#8B1A1A";
+  const groupLabel = isDark ? "rgba(255,255,255,0.45)" : "#EF5350";
 
   return (
     <section style={{ marginBottom: "24px" }}>
@@ -66,24 +66,13 @@ export function EducationSection({ category: _category, theme, mode }: Education
 
       <div style={{ display: "flex", flexDirection: "column", gap: "14px" }}>
         {entries.map((entry) => (
-          <div key={entry.school}>
+          <div key={entry.school} style={{ breakInside: "avoid", pageBreakInside: "avoid" }}>
             <div style={{ fontSize: "11px", fontWeight: 700, color: textMain, lineHeight: 1.3 }}>
               {entry.degree}
             </div>
             <div style={{ fontSize: "10px", color: textSub, marginTop: "3px" }}>{entry.school}</div>
             <div style={{ fontSize: "10px", color: groupLabel, marginTop: "1px" }}>Cebu, Philippines</div>
-            <div
-              style={{
-                display: "inline-block",
-                fontSize: "9.5px",
-                fontWeight: 600,
-                color: "#fff",
-                backgroundColor: accent,
-                padding: "1px 7px",
-                borderRadius: "3px",
-                marginTop: "5px",
-              }}
-            >
+            <div style={{ fontSize: "9.5px", fontWeight: 600, color: accent, marginTop: "3px" }}>
               {entry.period}
             </div>
 

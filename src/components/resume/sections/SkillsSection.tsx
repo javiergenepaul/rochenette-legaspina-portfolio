@@ -49,13 +49,13 @@ export function SkillsSection({ category, theme, mode }: SkillsSectionProps) {
 
   // ── Modern — sidebar style ─────────────────────────────────────────────────
   // Sidebar is narrow (~220px), so stack groups vertically
-  const accent     = "var(--amethyst-500)";
-  const textMain   = isDark ? "#e8d5ff" : "var(--amethyst-900)";
-  const textSub    = isDark ? "#bbb"    : "var(--amethyst-700)";
+  const accent     = "#D32F2F";
+  const textMain   = isDark ? "#e8d5ff" : "#651313";
+  const textSub    = isDark ? "#bbb"    : "#B71C1C";
   const tagBg      = isDark ? "rgba(255,255,255,0.10)" : "#fff";
-  const tagBorder  = isDark ? "rgba(255,255,255,0.15)" : "var(--amethyst-200)";
-  const tagText    = isDark ? "#e8d5ff" : "var(--amethyst-800)";
-  const groupLabel = isDark ? "rgba(255,255,255,0.45)" : "var(--amethyst-400)";
+  const tagBorder  = isDark ? "rgba(255,255,255,0.15)" : "#EF9A9A";
+  const tagText    = isDark ? "#e8d5ff" : "#8B1A1A";
+  const groupLabel = isDark ? "rgba(255,255,255,0.45)" : "#EF5350";
 
   const groups = groupBy(skills);
 
@@ -78,24 +78,8 @@ export function SkillsSection({ category, theme, mode }: SkillsSectionProps) {
               {groupName}
             </div>
             {/* Tags */}
-            <div style={{ display: "flex", flexWrap: "wrap", gap: "4px" }}>
-              {items.map((skill) => (
-                <span
-                  key={skill.name}
-                  style={{
-                    display: "inline-block",
-                    fontSize: "10px",
-                    padding: "3px 8px",
-                    borderRadius: "3px",
-                    border: `1px solid ${tagBorder}`,
-                    backgroundColor: tagBg,
-                    color: tagText,
-                    fontWeight: 600,
-                  }}
-                >
-                  {skill.name}
-                </span>
-              ))}
+            <div style={{ fontSize: "10px", color: tagText, fontWeight: 500, lineHeight: 1.6 }}>
+              {items.map((skill) => skill.name).join(" · ")}
             </div>
           </div>
         ))}

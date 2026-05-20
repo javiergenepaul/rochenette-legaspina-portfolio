@@ -70,7 +70,7 @@ export function HeaderSection({ category, theme, mode }: HeaderSectionProps) {
           display: "inline-block",
           fontSize: "11px",
           fontWeight: 600,
-          color: "var(--amethyst-200)",
+          color: "#EF9A9A",
           textTransform: "uppercase",
           letterSpacing: "1.4px",
           marginBottom: "18px",
@@ -103,7 +103,7 @@ export function HeaderSection({ category, theme, mode }: HeaderSectionProps) {
             {i > 0 && (
               <span style={{ margin: "0 10px", color: "rgba(255,255,255,0.25)" }}>|</span>
             )}
-            <span style={{ color: "var(--amethyst-300)", marginRight: "4px", fontWeight: 600 }}>
+            <span style={{ color: "#E57373", marginRight: "4px", fontWeight: 600 }}>
               {item.label}:
             </span>
             <span>{item.value}</span>
