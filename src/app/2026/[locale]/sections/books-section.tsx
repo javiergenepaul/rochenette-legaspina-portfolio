@@ -27,7 +27,7 @@ export default function BooksSection2026() {
       >
         Books That <span className="text-amethyst-500">Shaped Me</span>
       </h2>
-      <p className="text-woodsmoke-500 dark:text-woodsmoke-400 text-[0.95rem] leading-[1.75] max-w-[560px] mb-12">
+      <p className="text-woodsmoke-500 dark:text-woodsmoke-400 text-[0.95rem] leading-[1.75] max-w-140 mb-12">
         The titles that fundamentally changed how I think about design, systems, and people.
       </p>
 
@@ -46,7 +46,7 @@ export default function BooksSection2026() {
           >
             {/* Cover */}
             <div
-              className="h-[148px] relative flex items-center justify-center overflow-hidden"
+              className="h-37 relative flex items-center justify-center overflow-hidden"
               style={{ background: COVER_GRADIENTS[i % COVER_GRADIENTS.length] }}
             >
               {/* Book spine effect */}

@@ -49,7 +49,7 @@ export default function Sidebar() {
           onClick={() => setIsOpen(!isOpen)}
           className="fixed inset-0 bg-[#0E0D0F]/40 dark:bg-transparent"
         />
-        <Drawer.Content className="pb-24 bg-woodsmoke-50 dark:bg-woodsmoke-900 py-6 px-4 flex flex-col gap-10 h-screen w-[320px] fixed top-0 right-0 outline-none z-[99999999999999] overflow-y-auto">
+        <Drawer.Content className="pb-24 bg-woodsmoke-50 dark:bg-woodsmoke-900 py-6 px-4 flex flex-col gap-10 h-screen w-[320px] fixed top-0 right-0 outline-none z-99999999999999 overflow-y-auto">
           <div className="flex justify-between items-center">
             <ThemeToggleSwitch
               checked={resolvedTheme === "dark"}
@@ -88,7 +88,7 @@ export default function Sidebar() {
                     className={twMerge(
                       "text-normal font-bold transition-transform ease-in-out",
                       pathname === link.to
-                        ? "text-amethyst-500 translate-y-[-0.125rem]"
+                        ? "text-amethyst-500 -translate-y-0.5"
                         : "text-woodsmoke-500 hover:text-woodsmoke-800 dark:hover:text-woodsmoke-200 dark:text-woodsmoke-300 font-normal"
                     )}
                   >

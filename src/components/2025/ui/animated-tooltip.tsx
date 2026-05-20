@@ -101,8 +101,8 @@ export const AnimatedTooltip = ({ items }: { items: TooltipItem[] }) => {
                   item.leftClass
                 )}
               >
-                <div className="absolute inset-x-10 z-30 w-[20%] -bottom-px bg-gradient-to-r from-transparent via-amethyst-300 to-transparent h-px " />
-                <div className="absolute left-10 w-[40%] z-30 -bottom-px bg-gradient-to-r from-transparent via-amethyst-700 to-transparent h-px " />
+                <div className="absolute inset-x-10 z-30 w-[20%] -bottom-px bg-linear-to-r from-transparent via-amethyst-300 to-transparent h-px " />
+                <div className="absolute left-10 w-[40%] z-30 -bottom-px bg-linear-to-r from-transparent via-amethyst-700 to-transparent h-px " />
                 <div className="font-bold dark:text-woodsmoke-50 text-woodsmoke-500 relative z-30 text-base">
                   {item.name}
                 </div>
@@ -119,7 +119,7 @@ export const AnimatedTooltip = ({ items }: { items: TooltipItem[] }) => {
             alt={item.imageAlt}
             style={{ height: `${item.height}px`, width: `${item.width}px` }}
             className={cn(
-              `object-cover select-none !m-0 !p-0 object-top group-hover:scale-105 group-hover:z-30 relative transition duration-500`,
+              `object-cover select-none m-0! p-0! object-top group-hover:scale-105 group-hover:z-30 relative transition duration-500`,
               item.className
             )}
           />
