@@ -16,6 +16,9 @@ import {
   AiLogo,
 } from "./logo";
 import {
+  ExodiaSpacecraft,
+  ExodiaSpartanHelmet,
+  ExodiaSilvanaScepter,
   ScClaimsMockup,
   ScClaimsMockup1,
   ScClaimsMockup2,
@@ -38,6 +41,9 @@ import {
 } from "./projects";
 
 export {
+  ExodiaSpacecraft,
+  ExodiaSpartanHelmet,
+  ExodiaSilvanaScepter,
   RocheetteLegaspinaDarkImage,
   AllianceLogo,
   Mach95Logo,

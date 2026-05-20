@@ -6,6 +6,7 @@ import { FolderOpen, Tag, ChevronRight } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { PROJECTS } from "../data/portfolio-data";
 import { thumbBg } from "@/lib/project-utils";
+import Image from "next/image";
 
 const SPRING = { type: "spring" as const, stiffness: 340, damping: 34 };
 
@@ -36,7 +37,7 @@ export default function ProjectsSection2026() {
       </p>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-        {PROJECTS.map((project, i) => (
+        {PROJECTS.filter(p => !p.hidden).map((project, i) => (
           <motion.div
             key={project.title}
             style={{ borderRadius: 20 }}
@@ -46,9 +47,8 @@ export default function ProjectsSection2026() {
             transition={{ ...SPRING, delay: i * 0.06 }}
             onClick={() => router.push(`/2026/${locale}/projects/${project.slug}`)}
             className={cn(
-              "flex flex-col overflow-hidden border cursor-pointer",
+              "flex flex-col overflow-hidden cursor-pointer",
               "bg-white dark:bg-woodsmoke-800",
-              "border-woodsmoke-200 dark:border-woodsmoke-700",
               "shadow-[0_4px_16px_rgba(0,0,0,.06)]",
             )}
           >
@@ -57,8 +57,18 @@ export default function ProjectsSection2026() {
               className="h-43.75 relative flex items-center justify-center overflow-hidden"
               style={{ background: thumbBg(project.gradient) }}
             >
-              <div className="absolute inset-0 bg-linear-to-t from-black/20 to-transparent" />
-              <FolderOpen size={48} className="text-white/65 relative z-10" strokeWidth={1.25} />
+              {project.thumbnail ? (
+                <Image
+                  src={project.thumbnail}
+                  alt={project.title}
+                  fill
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                  className="object-cover object-top"
+                />
+              ) : (
+                <FolderOpen size={48} className="text-white/65 relative z-10" strokeWidth={1.25} />
+              )}
+              <div className="absolute inset-0 bg-linear-to-t from-black/30 to-transparent" />
               <div className="absolute top-3 left-3 z-20 flex items-center gap-1 bg-white/18 backdrop-blur-sm border border-white/28 text-white px-2.5 py-1 rounded-full text-[0.68rem] font-poppins font-bold">
                 <Tag size={11} strokeWidth={2} />
                 {project.type}

@@ -1,3 +1,6 @@
+import ExodiaSpacecraft from "./exodia/spacecraft.jpg";
+import ExodiaSpartanHelmet from "./exodia/spartan-helmet.jpg";
+import ExodiaSilvanaScepter from "./exodia/silvana-scepter.jpg";
 import ScClaimsMockup from "./sc-claims-mockup.png";
 import ScClaimsMockup1 from "./sc-claims-mockup-1.png";
 import ScClaimsMockup2 from "./sc-claims-mockup-2.png";
@@ -19,6 +22,9 @@ import ScClaimsPreview from "./sc-claims-preview.png";
 import YooPreview from "./yoo-preview.png";
 
 export {
+  ExodiaSpacecraft,
+  ExodiaSpartanHelmet,
+  ExodiaSilvanaScepter,
   CountryScapePreview,
   IQMKPreview,
   ScClaimsPreview,

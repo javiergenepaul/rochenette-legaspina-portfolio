@@ -4,30 +4,30 @@ export const SKILLS = [
   {
     category: "3D & Creative",
     items: [
-      { name: "Blender", icon: "🎨" },
-      { name: "Substance", icon: "🎭" },
+      { name: "Blender",       logo: "/logos/blender.png" },
+      { name: "Substance",     icon: "🎭" },
       { name: "Unreal Engine", icon: "🎮" },
-      { name: "Pixel Bridge", icon: "🌉" },
+      { name: "Quixel",        icon: "🌉" },
     ],
   },
   {
     category: "UI/UX & Design",
     items: [
-      { name: "Figma", icon: "✏️" },
-      { name: "Photoshop", icon: "🖼️" },
-      { name: "Illustrator", icon: "🔷" },
-      { name: "Trello", icon: "📋" },
+      { name: "Figma",        logo: "/logos/figma.png" },
+      { name: "Photoshop",    logo: "/logos/photoshop.png" },
+      { name: "Illustrator",  logo: "/logos/illustrator.png" },
+      { name: "Trello",       icon: "📋" },
     ],
   },
   {
     category: "Systems & Analysis",
     items: [
-      { name: "Tableau", icon: "📉" },
-      { name: "Google Analytics", icon: "📈" },
-      { name: "Power BI", icon: "📊" },
-      { name: "TFS", icon: "🔧" },
-      { name: "Microsoft Apps", icon: "🪟" },
-      { name: "Trello", icon: "📋" },
+      { name: "Tableau",           icon: "📉" },
+      { name: "Google Analytics",  icon: "📈" },
+      { name: "Power BI",          icon: "📊" },
+      { name: "TFS",               icon: "🔧" },
+      { name: "Microsoft Apps",    icon: "🪟" },
+      { name: "Trello",            icon: "📋" },
     ],
   },
 ];
@@ -73,12 +73,82 @@ export const PROJECTS: {
   description: string;
   stack: string[];
   gradient: string;
+  thumbnail?: string;
+  hidden?: boolean;
   mockups: { label: string; image?: string; note?: string }[];
   link?: string;
   credit?: string;
   carouselLabel?: string;
 }[] = [
   {
+    slug: "sc-claims",
+    title: "Senior Citizen Discount Claims System",
+    type: "UI/UX",
+    role: "Systems Analyst & UI/UX Designer",
+    description:
+      "A web-based platform that streamlines senior citizen discount validation by allowing users to upload Excel records with SKU details. The system automatically validates records, ensuring accurate and quick reimbursements to pharmacies and hospitals.",
+    stack: ["Figma", "Moqups", "Systems Analysis"],
+    gradient: "from-blue-900 to-sky-600",
+    thumbnail: "/projects/sc-claims/preview.png",
+    mockups: [
+      { label: "Main Mockup",  image: "/projects/sc-claims/mockup.png" },
+      { label: "Screen 1",     image: "/projects/sc-claims/mockup-1.png" },
+      { label: "Screen 2",     image: "/projects/sc-claims/mockup-2.png" },
+    ],
+  },
+  {
+    slug: "yoo",
+    title: "YOO — Food Delivery & Transport App",
+    type: "UI/UX",
+    role: "UI/UX Designer",
+    description:
+      "An app that combines food delivery and transportation services in one platform. Offers secure deliveries and reliable transportation for personal needs, with an easy-to-use interface for managing errands and travel.",
+    stack: ["Figma", "User Research", "Prototyping"],
+    gradient: "from-emerald-900 to-teal-600",
+    thumbnail: "/projects/yoo/preview.png",
+    mockups: [
+      { label: "Main Mockup",  image: "/projects/yoo/mockup.png" },
+      { label: "Screen 1",     image: "/projects/yoo/mockup-1.png" },
+      { label: "Screen 2",     image: "/projects/yoo/mockup-2.png" },
+      { label: "Screen 3",     image: "/projects/yoo/mockup-3.png" },
+    ],
+  },
+  {
+    slug: "iqmk",
+    title: "IQMK Global — Wellness & Business App",
+    type: "UI/UX",
+    role: "UI/UX Designer",
+    description:
+      "An app supporting people in achieving wellness and financial goals. Offers premium Muscadine grape products and a low-risk business opportunity through direct sales, e-commerce, and network marketing.",
+    stack: ["Figma", "UI Design", "UX Research"],
+    gradient: "from-violet-900 to-purple-600",
+    thumbnail: "/projects/iqmk/preview.png",
+    mockups: [
+      { label: "Main Mockup",  image: "/projects/iqmk/mockup.png" },
+      { label: "Screen 1",     image: "/projects/iqmk/mockup-1.png" },
+      { label: "Screen 2",     image: "/projects/iqmk/mockup-2.png" },
+      { label: "Screen 3",     image: "/projects/iqmk/mockup-3.png" },
+    ],
+  },
+  {
+    slug: "countryscape",
+    title: "CountryScape — Hotel Booking Platform",
+    type: "UI/UX",
+    role: "UI/UX Designer",
+    description:
+      "A hotel booking platform offering properties with breathtaking views for every mood — peace, adventure, or relaxation. Easy booking ensures a stress-free vacation experience.",
+    stack: ["Figma", "Wireframing", "Prototyping"],
+    gradient: "from-cyan-900 to-blue-600",
+    thumbnail: "/projects/countryscape/preview.png",
+    mockups: [
+      { label: "Main Mockup",  image: "/projects/countryscape/mockup.png" },
+      { label: "Screen 1",     image: "/projects/countryscape/mockup-1.png" },
+      { label: "Screen 2",     image: "/projects/countryscape/mockup-2.png" },
+      { label: "Screen 3",     image: "/projects/countryscape/mockup-3.png" },
+    ],
+  },
+  {
+    hidden: true,
     slug: "clinictrack",
     title: "ClinicTrack — Hospital Management System",
     type: "Web App",
@@ -95,6 +165,7 @@ export const PROJECTS: {
     ],
   },
   {
+    hidden: true,
     slug: "lumina",
     title: "Lumina — E-Commerce Redesign",
     type: "UI/UX",
@@ -111,6 +182,7 @@ export const PROJECTS: {
     ],
   },
   {
+    hidden: true,
     slug: "archviz-studio",
     title: "ArchViz Studio — 3D Product Render",
     type: "3D / Visualization",
@@ -127,6 +199,7 @@ export const PROJECTS: {
     ],
   },
   {
+    hidden: true,
     slug: "flowmap",
     title: "FlowMap — Business Process Analyzer",
     type: "Systems",
@@ -143,6 +216,7 @@ export const PROJECTS: {
     ],
   },
   {
+    hidden: true,
     slug: "portfolio-2025",
     title: "Portfolio 2025 — Personal Site",
     type: "Full-Stack",
@@ -207,15 +281,16 @@ export const BOOKS = [
     takeaway: "Design for System 1 thinking",
   },
   {
-    title: "Sprint",
-    author: "Jake Knapp",
-    tag: "Product Design",
+    title: "Atomic Habits",
+    author: "James Clear",
+    tag: "Self-Mastery",
     insight:
-      "The 5-day design sprint changed how I prototype — <em>answer big questions fast</em> with a structured, time-boxed process.",
+      "Small, consistent improvements compound over time — <em>you don't rise to your goals, you fall to your systems</em>.",
     gradient: "from-red-800 to-orange-600",
-    takeaway: "Validate before you build",
+    takeaway: "Systems beat goals",
   },
   {
+    hidden: true,
     title: "Clean Code",
     author: "Robert C. Martin",
     tag: "Engineering",
@@ -225,6 +300,7 @@ export const BOOKS = [
     takeaway: "Clarity over cleverness",
   },
   {
+    hidden: true,
     title: "The Lean Startup",
     author: "Eric Ries",
     tag: "Product Strategy",

@@ -57,6 +57,16 @@ export default function ProjectSection() {
       imgAlt: "CountryScape Preview",
       sectionId: "countryscape",
     },
+    {
+      title: translate(t, "home.project.projects.5.title"),
+      description: translate(
+        t,
+        "home.project.projects.5.description"
+      ),
+      img: ASSETS.ExodiaSpacecraft,
+      imgAlt: "Exodia VR Spacecraft",
+      sectionId: "exodia-3d",
+    },
   ];
 
   return (

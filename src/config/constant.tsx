@@ -630,6 +630,42 @@ export const PROJECTS: ProjectInterface[] = [
     ],
   },
 
+  // Exodia VR Platform — 3D Game Assets
+  {
+    title: "Exodia Studio — 3D Modelling Activities",
+    role: "3D Modeller & Substance Painter",
+    desciption:
+      "A sample of my 3D model contributions from the company that helped me mold my skills in 3D modelling.",
+    information: [
+      {
+        title: "Contribution",
+        description: [
+          "Created 3D models from scratch using Blender.",
+          "Applied full 3D workflows including modelling, UV unwrapping, texturing, and rendering.",
+        ],
+      },
+      {
+        title: "Tools",
+        description: ["Blender", "Substance Painter", "Retopology"],
+      },
+      {
+        title: "Challenge",
+        description: [
+          "Keeping clean quad-based topology by avoiding extra vertices that could distort the surface.",
+          "Keeping planes properly placed to avoid texture issues during rendering, retopology, UV mapping, and texturing in Substance Painter.",
+        ],
+      },
+    ],
+    sectionId: "exodia-3d",
+    mockup: ASSETS.ExodiaSpacecraft,
+    mockupAlt: "Exodia VR Spacecraft",
+    mockups: [
+      { image: ASSETS.ExodiaSpacecraft,    alt: "VR Spacecraft" },
+      { image: ASSETS.ExodiaSpartanHelmet, alt: "Spartan Battle Helmet" },
+      { image: ASSETS.ExodiaSilvanaScepter, alt: "Silvana's Scepter" },
+    ],
+  },
+
   // Country Scapes
   {
     title: translations.projects.countryScape.title,

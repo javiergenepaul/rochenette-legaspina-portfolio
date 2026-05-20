@@ -8,7 +8,7 @@ import { cn } from "@/lib/utils";
 import BackToProjects from "@/components/2026/back-to-projects";
 
 export async function generateStaticParams() {
-  return PROJECTS.map((p) => ({ slug: p.slug }));
+  return PROJECTS.filter((p) => !p.hidden).map((p) => ({ slug: p.slug }));
 }
 
 export default async function ProjectDetailPage({
@@ -151,9 +151,9 @@ export default async function ProjectDetailPage({
           </p>
           <div
             className="relative"
-            style={{ height: `${PROJECTS.length * 56 + 104}px` }}
+            style={{ height: `${PROJECTS.filter(p => !p.hidden).length * 56 + 104}px` }}
           >
-            {PROJECTS.map((p, i) => {
+            {PROJECTS.filter(p => !p.hidden).map((p, i) => {
               const isActive = p.slug === slug;
               return isActive ? (
                 /* ── Active project — not a link, highlighted ── */

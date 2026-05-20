@@ -1,6 +1,7 @@
 import { Wrench } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { SKILLS } from "../data/portfolio-data";
+import Image from "next/image";
 
 export default function SkillsSection2026() {
   return (
@@ -40,9 +41,9 @@ export default function SkillsSection2026() {
 
             {/* Tool pills */}
             <div className="flex flex-wrap gap-3.5">
-              {items.map(({ name, icon }) => (
+              {items.map((item) => (
                 <div
-                  key={name}
+                  key={item.name}
                   className={cn(
                     "flex flex-col items-center justify-center gap-2",
                     "bg-white dark:bg-woodsmoke-800",
@@ -53,9 +54,19 @@ export default function SkillsSection2026() {
                     "hover:border-amethyst-500 hover:shadow-[0_12px_36px_rgba(211,47,47,.13)] hover:-translate-y-1",
                   )}
                 >
-                  <span className="text-[1.7rem] leading-none">{icon}</span>
+                  {"logo" in item && item.logo ? (
+                    <Image
+                      src={item.logo}
+                      alt={item.name}
+                      width={32}
+                      height={32}
+                      className="object-contain"
+                    />
+                  ) : (
+                    <span className="text-[1.7rem] leading-none">{"icon" in item ? item.icon : ""}</span>
+                  )}
                   <span className="text-[0.7rem] font-poppins font-semibold text-woodsmoke-500 dark:text-woodsmoke-400 text-center leading-[1.3]">
-                    {name}
+                    {item.name}
                   </span>
                 </div>
               ))}
