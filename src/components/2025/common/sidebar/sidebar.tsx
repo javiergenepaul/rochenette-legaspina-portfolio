@@ -122,24 +122,6 @@ export default function Sidebar() {
                   {translate(t, "about.letsTalk.button.letsTalk")}
                 </span>
               </Button>
-              <Button
-                variant={"outline"}
-                className="w-full bg-transparent border-woodsmoke-500 dark:border-woodsmoke-300"
-                onClick={() => {
-                  const resumeFile =
-                    resolvedTheme === "dark"
-                      ? "rochenette-legaspina-2025-resume-dark.pdf"
-                      : "rochenette-legaspina-2025-resume-light.pdf";
-                  window.open(
-                    `${window.location.origin}/${year}/resume/${resumeFile}`,
-                    "_blank"
-                  );
-                }}
-              >
-                <span className="text-caption text-woodsmoke-600 dark:text-woodsmoke-50">
-                  {translate(t, "about.letsTalk.button.downloadMyCV")}
-                </span>
-              </Button>
             </div>
           </div>
           <Separator className="bg-woodsmoke-200 dark:bg-woodsmoke-600" />

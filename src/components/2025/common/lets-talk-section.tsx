@@ -52,27 +52,6 @@ export default function LetsTalkSection() {
               {translate(t, "about.letsTalk.button.letsTalk")}
             </span>
           </Button>
-          <Button
-            className="group xl:px-14 px-5 md:px-14 xl:py-5 xs:py-3.5 w-full text-normal text-scorpion-700 border-scorpion-700 dark:border-amethyst-500 bg-transparent group-hover:bg-woodsmoke-100 active:bg-transparent active:border-amethyst-500 active:border-2"
-            variant={"outline"}
-            onClick={() => {
-              const resumeFile =
-                resolvedTheme === "dark"
-                  ? "rochenette-legaspina-2025-resume-dark.pdf"
-                  : "rochenette-legaspina-2025-resume-light.pdf";
-              window.open(
-                `${window.location.origin}/2025/resume/${resumeFile}`,
-                "_blank"
-              );
-            }}
-          >
-            <span className="xl:text-large xs:text-normal text-button dark:text-woodsmoke-50 hover:text-woodsmoke-900 active:text-woodsmoke-900">
-              {translate(
-                t,
-                "about.letsTalk.button.downloadMyCV"
-              )}
-            </span>
-          </Button>
         </div>
       </motion.div>
     </section>

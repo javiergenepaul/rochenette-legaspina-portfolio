@@ -51,22 +51,22 @@ export default function HeroSection() {
           <p className="lg:text-h5 md:text-large text-normal lg:font-medium font-normal mt-4 text-woodsmoke-500 dark:text-woodsmoke-300 sm:text-start text-center">
             {translate(t, "home.hero.slogan.subtitle")}
           </p>
-          <div className="mt-16 flex sm:flex-row flex-col items-center gap-3">
+          <div className="mt-16 flex sm:flex-row flex-col gap-3">
             <ResumeBuilderModal
               trigger={
-                <Button className="py-4 sm:px-12 px-20 bg-amethyst-500 hover:bg-amethyst-400 focus:bg-amethyst-800">
-                  <span className="text-amethyst-50 xl:text-large text-regular">
+                <Button className="sm:w-48 w-full xl:py-5 py-3.5 bg-amethyst-500 hover:bg-amethyst-400 focus:bg-amethyst-800">
+                  <span className="text-amethyst-50 xl:text-large xs:text-normal text-button">
                     Build My Resume
                   </span>
                 </Button>
               }
             />
-            <Link href={PATH.ABOUT.getPath(year, locale)} passHref>
+            <Link href={PATH.ABOUT.getPath(year, locale)} passHref className="block sm:w-48 w-full">
               <Button
                 variant="outline"
-                className="py-4 sm:px-12 px-20 border-amethyst-500/40 text-amethyst-500 hover:bg-amethyst-500/10"
+                className="w-full xl:py-5 py-3.5 border-amethyst-500/40 text-amethyst-500 hover:bg-amethyst-500/10"
               >
-                <span className="xl:text-large text-regular">
+                <span className="xl:text-large xs:text-normal text-button">
                   {translate(t, "home.hero.slogan.button")}
                 </span>
               </Button>
