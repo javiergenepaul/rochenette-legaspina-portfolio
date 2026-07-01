@@ -1,6 +1,11 @@
+"use client";
+
+import { usePathname } from "next/navigation";
+import { useTranslation } from "react-i18next";
 import { BookOpen, User2, Key } from "lucide-react";
 import { cn } from "@/lib/utils";
-import { BOOKS } from "../data/portfolio-data";
+import { translate } from "@/lib";
+import { getBooks } from "../data/portfolio-data";
 
 const COVER_GRADIENTS = [
   "linear-gradient(135deg,#D32F2F,#E57373)",
@@ -11,6 +16,9 @@ const COVER_GRADIENTS = [
 ];
 
 export default function BooksSection2026() {
+  const locale = usePathname().split("/")[2] ?? "en";
+  const BOOKS = getBooks(locale);
+  const { t } = useTranslation();
   return (
     <section
       id="books"
@@ -19,16 +27,16 @@ export default function BooksSection2026() {
       {/* Header */}
       <div className="flex items-center gap-1.5 text-amethyst-500 font-poppins font-bold text-[0.72rem] uppercase tracking-[2.5px] mb-2">
         <BookOpen size={13} strokeWidth={1.75} />
-        Reading List
+        {translate(t, "portfolio2026.books.eyebrow")}
       </div>
       <h2
         className="font-poppins font-bold text-woodsmoke-900 dark:text-woodsmoke-50 mb-2"
         style={{ fontSize: "clamp(1.7rem,3vw,2.4rem)", lineHeight: 1.2 }}
       >
-        Books That <span className="text-amethyst-500">Shaped Me</span>
+        {translate(t, "portfolio2026.books.headingPre")} <span className="text-amethyst-500">{translate(t, "portfolio2026.books.headingHighlight")}</span>
       </h2>
       <p className="text-woodsmoke-500 dark:text-woodsmoke-400 text-[0.95rem] leading-[1.75] max-w-140 mb-12">
-        The titles that fundamentally changed how I think about design, systems, and people.
+        {translate(t, "portfolio2026.books.intro")}
       </p>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">

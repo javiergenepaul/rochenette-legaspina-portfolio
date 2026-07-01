@@ -1,6 +1,6 @@
 "use client";
 
-import { EDUCATION_EXPERIENCE, LINK_URL, style } from "@/config";
+import { getEducationExperience, LINK_URL, style } from "@/config";
 import { translate } from "@/lib";
 import { motion } from "framer-motion";
 import { useTranslation } from 'react-i18next';
@@ -8,7 +8,8 @@ import Image from "next/image";
 import { twMerge } from "tailwind-merge";
 
 export default function EducationSection() {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
+  const EDUCATION_EXPERIENCE = getEducationExperience(i18n.language);
   return (
     <section
       id="education-section"

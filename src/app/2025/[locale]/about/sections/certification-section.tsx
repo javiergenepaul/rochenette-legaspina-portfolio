@@ -1,6 +1,6 @@
 "use client";
 
-import { CERTIFICATION_EXPERIENCE, style } from "@/config";
+import { getCertificationExperience, style } from "@/config";
 import { translate } from "@/lib";
 import { useTranslation } from 'react-i18next';
 import { twMerge } from "tailwind-merge";
@@ -8,7 +8,8 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 
 export default function CertificationSection() {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
+  const CERTIFICATION_EXPERIENCE = getCertificationExperience(i18n.language);
   return (
     <section
       id="certification-section"
@@ -47,7 +48,7 @@ export default function CertificationSection() {
             }`}
           >
             <Image
-              className="object-contain xl:h-36 xl:w-36 lg:h-28 lg:w-28 md:h-24 md:w-24 sm:h-20 sm:w-20 w-16 h-16 shadow-[0_0_14.98px_rgba(0,0,0,0.14)] rounded-2xl bg-scorpion-50 leading-[1.1875rem]"
+              className="object-contain xl:h-36 xl:w-36 lg:h-28 lg:w-28 md:h-24 md:w-24 sm:h-20 sm:w-20 w-16 h-16 shadow-[0_0_14.98px_rgba(0,0,0,0.14)] rounded-2xl bg-scorpion-50 leading-4.75"
               src={cert.image}
               alt={cert.imageAlt}
             />
@@ -55,13 +56,13 @@ export default function CertificationSection() {
               <span className="xl:text-large text-normal font-bold text-scorpion-700 dark:text-woodsmoke-50">
                 {cert.title}
               </span>
-              <span className="xl:text-large text-normal font-medium text-scorpion-600 dark:text-woodsmoke-50 leading-[1.1875rem]">
+              <span className="xl:text-large text-normal font-medium text-scorpion-600 dark:text-woodsmoke-50 leading-4.75">
                 {cert.subTitle}
               </span>
               <ul className="list-disc pl-6 flex flex-col gap-2">
                 {cert.description.map((item, descIndex) => (
                   <li
-                    className="xl:text-large text-normal text-scorpion-500 dark:text-woodsmoke-300 leading-[1.1875rem] text-center xs:text-left"
+                    className="xl:text-large text-normal text-scorpion-500 dark:text-woodsmoke-300 leading-4.75 text-center xs:text-left"
                     key={descIndex}
                   >
                     {item}

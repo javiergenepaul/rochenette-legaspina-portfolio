@@ -1,9 +1,17 @@
+"use client";
+
 import Image from "next/image";
+import { usePathname } from "next/navigation";
+import { useTranslation } from "react-i18next";
 import { Award, Building2 } from "lucide-react";
 import { cn } from "@/lib/utils";
-import { CERTIFICATION_EXPERIENCE } from "@/config";
+import { translate } from "@/lib";
+import { getCertificationExperience } from "@/config";
 
 export default function CertificationSection2026() {
+  const locale = usePathname().split("/")[2] ?? "en";
+  const CERTIFICATION_EXPERIENCE = getCertificationExperience(locale);
+  const { t } = useTranslation();
   return (
     <section
       id="certifications"
@@ -11,16 +19,16 @@ export default function CertificationSection2026() {
     >
       <div className="flex items-center gap-1.5 text-amethyst-500 font-poppins font-bold text-[0.72rem] uppercase tracking-[2.5px] mb-2">
         <Award size={13} strokeWidth={1.75} />
-        Certifications
+        {translate(t, "portfolio2026.certificationsPage.eyebrow")}
       </div>
       <h2
         className="font-poppins font-bold text-woodsmoke-900 dark:text-woodsmoke-50 mb-2"
         style={{ fontSize: "clamp(1.7rem,3vw,2.4rem)", lineHeight: 1.2 }}
       >
-        Skills <span className="text-amethyst-500">Validated</span>
+        {translate(t, "portfolio2026.certificationsPage.headingPre")} <span className="text-amethyst-500">{translate(t, "portfolio2026.certificationsPage.headingHighlight")}</span>
       </h2>
       <p className="text-woodsmoke-500 dark:text-woodsmoke-400 text-[0.95rem] leading-[1.75] max-w-140 mb-12">
-        Professional certifications that complement my hands-on experience with structured learning.
+        {translate(t, "portfolio2026.certificationsPage.intro")}
       </p>
 
       <div className="flex flex-col gap-5 xl:w-10/12 lg:w-11/12 w-full mx-auto">

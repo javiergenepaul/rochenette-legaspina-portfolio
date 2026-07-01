@@ -1,15 +1,22 @@
+"use client";
+
 import Image from "next/image";
+import { usePathname } from "next/navigation";
+import { useTranslation } from "react-i18next";
 import { Briefcase, Building2, Calendar, ExternalLink, ChevronRight } from "lucide-react";
 import { cn } from "@/lib/utils";
-import { WORK_EXPERIENCE } from "@/config";
-
-const ROLE_TAGS = [
-  ["Systems Analysis", "UI/UX Design", "Product Design"],
-  ["UI/UX Design", "Figma", "Brand Identity"],
-  ["3D Modeling", "Substance Painter", "Blender"],
-];
+import { translate } from "@/lib";
+import { getWorkExperience } from "@/config";
 
 export default function WorkSection2026() {
+  const locale = usePathname().split("/")[2] ?? "en";
+  const WORK_EXPERIENCE = getWorkExperience(locale);
+  const { t } = useTranslation();
+  const ROLE_TAGS = [
+    [translate(t, "portfolio2026.work.tagSystemsAnalysis"), translate(t, "portfolio2026.work.tagUiuxDesign"), translate(t, "portfolio2026.work.tagProductDesign")],
+    [translate(t, "portfolio2026.work.tagUiuxDesign"), translate(t, "portfolio2026.work.tagFigma"), translate(t, "portfolio2026.work.tagBrandIdentity")],
+    [translate(t, "portfolio2026.work.tag3dModeling"), translate(t, "portfolio2026.work.tagSubstancePainter"), translate(t, "portfolio2026.work.tagBlender")],
+  ];
   return (
     <section
       id="work"
@@ -33,17 +40,17 @@ export default function WorkSection2026() {
         <div className="flex items-center gap-2 font-mono text-[0.7rem] uppercase tracking-[3px] mb-3">
           <Briefcase size={12} className="text-amethyst-500" strokeWidth={1.75} />
           <span className="text-white/30">$</span>
-          <span className="text-amethyst-400">experience</span>
-          <span className="text-white/25">--list</span>
+          <span className="text-amethyst-400">{translate(t, "portfolio2026.work.eyebrow")}</span>
+          <span className="text-white/25">{translate(t, "portfolio2026.work.eyebrowFlag")}</span>
         </div>
         <h2
           className="font-poppins font-bold text-white mb-2"
           style={{ fontSize: "clamp(1.7rem,3vw,2.4rem)", lineHeight: 1.2 }}
         >
-          Professional <span className="text-amethyst-500">Journey</span>
+          {translate(t, "portfolio2026.work.headingPre")} <span className="text-amethyst-500">{translate(t, "portfolio2026.work.headingHighlight")}</span>
         </h2>
         <p className="text-white/45 text-[0.92rem] leading-[1.75] max-w-140 mb-16">
-          Roles and responsibilities that shaped my expertise across systems analysis, design, and 3D art.
+          {translate(t, "portfolio2026.work.intro")}
         </p>
 
         {/* Timeline */}

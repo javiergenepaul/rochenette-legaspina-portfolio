@@ -1,6 +1,6 @@
 "use client";
 
-import { style, WORK_EXPERIENCE } from "@/config";
+import { style, getWorkExperience } from "@/config";
 import { translate } from "@/lib";
 import { useTranslation } from 'react-i18next';
 import { twMerge } from "tailwind-merge";
@@ -8,7 +8,8 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 
 export default function WorkSection() {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
+  const WORK_EXPERIENCE = getWorkExperience(i18n.language);
   return (
     <section
       id="work-experience-section"

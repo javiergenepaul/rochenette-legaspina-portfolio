@@ -1,7 +1,9 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import { FolderOpen, User2, Tag, Layers, ChevronRight, Users } from "lucide-react";
-import { PROJECTS } from "../../data/portfolio-data";
+import i18nServer from "@/i18n/server";
+import { translate } from "@/lib";
+import { PROJECTS, getProjects2026 } from "../../data/portfolio-data";
 import MockupCarousel from "@/components/2026/mockup-carousel";
 import { thumbBg } from "@/lib/project-utils";
 import { cn } from "@/lib/utils";
@@ -17,6 +19,8 @@ export default async function ProjectDetailPage({
   params: Promise<{ locale: string; slug: string }>;
 }) {
   const { locale, slug } = await params;
+  const t = i18nServer.getFixedT(locale);
+  const PROJECTS = getProjects2026(locale);
   const project = PROJECTS.find((p) => p.slug === slug);
   if (!project) notFound();
 
@@ -31,13 +35,13 @@ export default async function ProjectDetailPage({
       {/* ── Page heading ──────────────────────────────────────────────────── */}
       <div className="flex items-center gap-1.5 text-amethyst-500 font-poppins font-bold text-[0.72rem] uppercase tracking-[2.5px] mb-2">
         <FolderOpen size={13} strokeWidth={1.75} />
-        Projects
+        {translate(t, "portfolio2026.projectsSection.eyebrow")}
       </div>
       <h2
         className="font-poppins font-bold text-woodsmoke-900 dark:text-woodsmoke-50 mb-10"
         style={{ fontSize: "clamp(1.7rem,3vw,2.4rem)", lineHeight: 1.2 }}
       >
-        Project <span className="text-amethyst-500">Overview</span>
+        {translate(t, "portfolio2026.projectDetail.overviewHeadingPre")} <span className="text-amethyst-500">{translate(t, "portfolio2026.projectDetail.overviewHeadingHighlight")}</span>
       </h2>
 
       {/* ── Two-column layout ─────────────────────────────────────────────── */}
@@ -80,7 +84,7 @@ export default async function ProjectDetailPage({
                 </div>
                 <div>
                   <p className="text-[0.62rem] text-amethyst-500 font-poppins font-bold uppercase tracking-wide mb-0.5">
-                    Role
+                    {translate(t, "portfolio2026.projectDetail.roleLabel")}
                   </p>
                   <p className="text-[0.8rem] text-woodsmoke-700 dark:text-woodsmoke-200 font-medium leading-snug">
                     {project.role}
@@ -93,7 +97,7 @@ export default async function ProjectDetailPage({
                 </div>
                 <div>
                   <p className="text-[0.62rem] text-amethyst-500 font-poppins font-bold uppercase tracking-wide mb-0.5">
-                    Type
+                    {translate(t, "portfolio2026.projectDetail.typeLabel")}
                   </p>
                   <p className="text-[0.8rem] text-woodsmoke-700 dark:text-woodsmoke-200 font-medium leading-snug">
                     {project.type}
@@ -105,7 +109,7 @@ export default async function ProjectDetailPage({
             {/* About */}
             <div>
               <p className="text-[0.62rem] text-amethyst-500 font-poppins font-bold uppercase tracking-wide mb-1">
-                About
+                {translate(t, "portfolio2026.projectDetail.aboutLabel")}
               </p>
               <p className="text-[0.84rem] text-woodsmoke-600 dark:text-woodsmoke-300 leading-[1.7]">
                 {project.description}
@@ -115,7 +119,7 @@ export default async function ProjectDetailPage({
             {/* Stack */}
             <div>
               <p className="text-[0.62rem] text-amethyst-500 font-poppins font-bold uppercase tracking-wide mb-2">
-                Tech &amp; Tools
+                {translate(t, "portfolio2026.projectDetail.techToolsLabel")}
               </p>
               <div className="flex flex-wrap gap-1.5">
                 {project.stack.map((s) => (
@@ -147,7 +151,7 @@ export default async function ProjectDetailPage({
         {/* ── Right: all projects — active indicator on current ───────────── */}
         <div className="lg:w-[38%] w-full">
           <p className="text-[0.72rem] font-poppins font-bold text-woodsmoke-400 uppercase tracking-[2px] mb-5">
-            All Projects
+            {translate(t, "portfolio2026.projectDetail.allProjectsLabel")}
           </p>
           <div
             className="relative"

@@ -59,6 +59,7 @@ export interface ResumeSectionConfig {
 }
 
 export const RESUME_SECTIONS: ResumeSectionConfig[] = [
+  { key: "SummarySection",       label: "Professional Summary", component: "SummarySection",  order: 0, visible: true, categories: ["general","uiux","3d","systems"], column: "main"    },
   { key: "ExperienceSection",    label: "Work Experience", component: "ExperienceSection",    order: 1, visible: true, categories: ["general","uiux","3d","systems"], column: "main"    },
   { key: "ProjectsSection",      label: "Projects",        component: "ProjectsSection",      order: 2, visible: true, categories: ["general","uiux","3d","systems"], column: "main"    },
   { key: "SkillsSection",        label: "Skills & Tools",  component: "SkillsSection",        order: 3, visible: true, categories: ["general","uiux","3d","systems"], column: "sidebar" },
@@ -159,12 +160,21 @@ export interface ResumeCertificationEntry {
   bullets:    { resume: string[] };
 }
 
-/** Resume-only metadata: display year and which categories this cert appears in. */
-const CERTIFICATION_META: { period?: string; categories: ResumeCategory[] }[] = [
+/**
+ * Resume-only metadata: display year, which categories this cert appears in,
+ * and an optional condensed bullet override. A one-time seminar doesn't need
+ * the full 5-bullet About-page writeup on a resume — ATS reviewers read a
+ * disproportionately long entry for a short course as padding, so this trims
+ * it down using only the same underlying facts (no new claims added).
+ */
+const CERTIFICATION_META: { period?: string; categories: ResumeCategory[]; bullets?: string[] }[] = [
   {
     // CERTIFICATION_EXPERIENCE[0] — Data Analytics Course
     period:     "2023",
     categories: ["general", "uiux", "systems"],
+    bullets: [
+      "8-hour seminar at Alliance Software covering data visualization, dashboard analytics, and business intelligence reporting.",
+    ],
   },
 ];
 
@@ -174,7 +184,7 @@ export const RESUME_CERTIFICATIONS_DATA: ResumeCertificationEntry[] =
     org:        cert.subTitle,
     period:     CERTIFICATION_META[i]?.period,
     categories: CERTIFICATION_META[i]?.categories ?? ["general"],
-    bullets:    { resume: cert.description },
+    bullets:    { resume: CERTIFICATION_META[i]?.bullets ?? cert.description },
   }));
 
 // ---------------------------------------------------------------------------
@@ -197,13 +207,33 @@ const SKILL_META: { categories: ResumeCategory[] }[] = [
   { categories: ["general", "systems"]           }, // MS Excel
 ];
 
-export const RESUME_SKILLS_DATA: ResumeSkillEntry[] = SKILLS_AND_TOOLS.map(
-  (skill, i) => ({
+/**
+ * Resume-only skills — process methods and tools confirmed by Rochenette
+ * that aren't part of the site's icon carousel (no logo asset needed here,
+ * this only feeds the resume's text-based skills list). Grouped under
+ * "UX Process" to keep raw tool proficiency and design methodology scannable
+ * as separate, ATS-matchable keyword groups.
+ */
+const RESUME_ONLY_SKILLS: ResumeSkillEntry[] = [
+  { name: "Wireframing",           category: "UX Process",   categories: ["general", "uiux", "3d"] },
+  { name: "Prototyping",           category: "UX Process",   categories: ["general", "uiux", "3d"] },
+  { name: "User Research",         category: "UX Process",   categories: ["general", "uiux", "3d"] },
+  { name: "Usability Testing",     category: "UX Process",   categories: ["general", "uiux", "3d"] },
+  { name: "Design Systems",        category: "UX Process",   categories: ["general", "uiux", "3d"] },
+  { name: "Web & Mobile App Design", category: "UX Process", categories: ["general", "uiux", "3d"] },
+  { name: "Sketch",                category: "UI/UX Design", categories: ["general", "uiux", "3d"] },
+  { name: "InVision",              category: "UI/UX Design", categories: ["general", "uiux", "3d"] },
+  { name: "Zeplin",                category: "UI/UX Design", categories: ["general", "uiux", "3d"] },
+];
+
+export const RESUME_SKILLS_DATA: ResumeSkillEntry[] = [
+  ...SKILLS_AND_TOOLS.map((skill, i) => ({
     name:       skill.title,       // "Figma", "Blender", …
     category:   skill.name,        // "UI/UX Design", "3D Modelling", …
     categories: SKILL_META[i]?.categories ?? ["general"],
-  }),
-);
+  })),
+  ...RESUME_ONLY_SKILLS,
+];
 
 // ---------------------------------------------------------------------------
 // Projects  — resume-specific; no equivalent in constant.tsx
@@ -273,3 +303,25 @@ export const RESUME_PROJECTS_DATA: ResumeProjectEntry[] = [
     },
   },
 ];
+
+// ---------------------------------------------------------------------------
+// Professional Summary — ATS-friendly lead paragraph, front-loads role +
+// years of experience + core tools so keyword scanners hit a match early.
+// Years are computed from RESUME_EXPERIENCE_DATA (not hand-typed) so this
+// stays accurate as the work history changes.
+// ---------------------------------------------------------------------------
+
+function getExperienceYears(category: ResumeCategory): number {
+  const years = RESUME_EXPERIENCE_DATA
+    .filter((e) => e.categories.includes(category))
+    .flatMap((e) => e.period.match(/\d{4}/g) ?? [])
+    .map(Number);
+  return years.length ? Math.max(...years) - Math.min(...years) : 0;
+}
+
+export const RESUME_SUMMARY: Record<ResumeCategory, string> = {
+  general: `UI/UX Designer & System Analyst with ${getExperienceYears("general")}+ years of experience spanning product design, requirements documentation, and system analysis. Skilled in wireframing, prototyping, and user research, using Figma, Adobe Illustrator, and Microsoft Word to translate business requirements into functional specifications and user-centered interface designs.`,
+  uiux: `UI/UX Designer with ${getExperienceYears("uiux")}+ years of experience designing web and mobile interfaces for e-commerce, logistics, and enterprise platforms. Skilled in wireframing, prototyping, user research, and usability testing, building consistent design systems with Figma, Sketch, and Adobe Illustrator.`,
+  "3d": `3D Modeller & UI/UX Designer with ${getExperienceYears("3d")}+ years of experience across 3D asset creation, texturing, and interface design. Skilled in Blender and Substance Painter for 3D work, and Figma for wireframing and prototyping, with experience supporting VR platform development.`,
+  systems: `System Analyst & UI/UX Designer with ${getExperienceYears("systems")}+ years of experience documenting functional specifications and analyzing business requirements. Combines systems analysis with UI/UX design skills — wireframing and design systems in Figma alongside Microsoft Word and Excel — to bridge technical and design workflows.`,
+};

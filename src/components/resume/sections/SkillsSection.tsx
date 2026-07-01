@@ -25,21 +25,24 @@ export function SkillsSection({ category, theme, mode }: SkillsSectionProps) {
   if (skills.length === 0) return null;
 
   // ── Simple ────────────────────────────────────────────────────────────────
+  // Grouped "Category: skill, skill" lines — plain commas/colons parse more
+  // reliably across ATS engines than per-item em-dash pairs.
   if (!isModern) {
     const textMain  = isDark ? "#f0f0f0" : "#111";
     const textSub   = isDark ? "#999"    : "#555";
     const ruleColor = isDark ? "#444"    : "#ccc";
+    const groups = groupBy(skills);
     return (
       <section style={{ marginBottom: "22px" }}>
         <h2 style={{ fontSize: "11.5px", fontWeight: 700, textTransform: "uppercase", letterSpacing: "1.4px",
           color: textMain, borderBottom: `1.5px solid ${ruleColor}`, paddingBottom: "4px", marginBottom: "14px", marginTop: 0 }}>
           Skills &amp; Tools
         </h2>
-        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "5px 24px" }}>
-          {skills.map((skill) => (
-            <div key={skill.name} style={{ fontSize: "11px", color: textMain, display: "flex", gap: "4px" }}>
-              <strong>{skill.name}</strong>
-              <span style={{ color: textSub }}>— {skill.category}</span>
+        <div style={{ display: "flex", flexDirection: "column", gap: "6px" }}>
+          {Object.entries(groups).map(([groupName, items]) => (
+            <div key={groupName} style={{ fontSize: "11px", lineHeight: 1.5 }}>
+              <strong style={{ color: textMain }}>{groupName}:</strong>{" "}
+              <span style={{ color: textSub }}>{items.map((skill) => skill.name).join(", ")}</span>
             </div>
           ))}
         </div>

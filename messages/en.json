@@ -14,7 +14,8 @@
           "2": ",Creating with Passion."
         },
         "subtitle": "Hi, I’m Rochenette Legaspina 😊! I’m passionate about creating meaningful and user-friendly design experiences. Explore my portfolio to see how I bring innovative design solutions to life!",
-        "button": "About Me"
+        "button": "About Me",
+        "resumeButton": "Build My Resume"
       },
       "banner": {
         "title": {
@@ -350,5 +351,261 @@
     "slogan": "Transforming Ideas into Impactful Designs",
     "copyright": "© 2025 Rochenette Legaspina | Developed by",
     "developer": "Gene Paul Mar Javier"
+  },
+  "portfolio2026": {
+    "nav": {
+      "about": "About",
+      "skills": "Skills",
+      "experience": "Experience",
+      "education": "Education",
+      "projects": "Projects",
+      "books": "Books",
+      "approach": "Approach",
+      "explorer": "Explorer",
+      "letsTalk": "Let's Talk",
+      "openToOpportunities": "Open to opportunities"
+    },
+    "footer": {
+      "builtWith": "Built with",
+      "andCoffee": "& lots of coffee"
+    },
+    "hero": {
+      "headingLine1": "Designing Systems.",
+      "headingLine2": "Solving Problems.",
+      "headingLine3": "Creating Impact.",
+      "description": "I'm a Systems Analyst with roots in 3D modeling and UI/UX design — blending creative intuition with analytical precision to build solutions that are elegant and effective.",
+      "pill3d": "3D Modeling",
+      "pillUiux": "UI/UX Design",
+      "pillSystems": "Systems Analyst",
+      "ctaWork": "View My Work",
+      "ctaResume": "Build My Resume",
+      "statDisciplines": "Disciplines",
+      "statProjects": "Projects",
+      "statTools": "Tools",
+      "statCuriosity": "Curiosity",
+      "scroll": "Scroll"
+    },
+    "about": {
+      "eyebrow": "About Me",
+      "headingPre": "A Creative Mind",
+      "headingHighlight": "Meets",
+      "headingPost": "Analytical Thinking",
+      "intro": "My career didn't follow a straight line — and that's precisely what makes my perspective unique.",
+      "badgeSub": "Design · Analysis",
+      "badgeRole1": "3D Artist",
+      "badgeRole2": "UI/UX Designer",
+      "badgeRole3": "Systems Analyst",
+      "chapter1Title": "The Beginning — 3D Modeling",
+      "chapter1Body": "It started with Blender. From getting proportions right to modeling objects from scratch — I worked my way up to baking realistic textures in Substance Painter. That chapter of hands-on 3D work is where it all began, and where I left it to grow further.",
+      "chapter2Title": "Growing Into — UI/UX Design",
+      "chapter2Body": "From 3D shapes to screen layouts. I moved into Figma and started designing user flows, wireframes, and high-fidelity screens for real products — learning that good design is just as much about how it works as how it looks.",
+      "chapter3Title": "Where I Am Now — Systems Analysis",
+      "chapter3Body": "Before I build anything, I listen — because the right solution means nothing if it's solving the wrong problem. I document requirements, map out business processes, and make sure what the client needs is exactly what gets built — nothing lost between the idea and the product.",
+      "soft1": "Problem Solver",
+      "soft2": "Creative Thinker",
+      "soft3": "Adaptable",
+      "soft4": "Collaborative",
+      "soft5": "Detail-Oriented",
+      "soft6": "User-Centered"
+    },
+    "skills": {
+      "eyebrow": "Skills & Tools",
+      "headingPre": "My",
+      "headingHighlight": "Toolkit",
+      "intro": "Tools and technologies I've used across 3D modeling, design, and systems analysis.",
+      "category3d": "3D & Creative",
+      "categoryUiux": "UI/UX & Design",
+      "categorySystems": "Systems & Analysis"
+    },
+    "work": {
+      "eyebrow": "experience",
+      "eyebrowFlag": "--list",
+      "headingPre": "Professional",
+      "headingHighlight": "Journey",
+      "intro": "Roles and responsibilities that shaped my expertise across systems analysis, design, and 3D art.",
+      "tagSystemsAnalysis": "Systems Analysis",
+      "tagUiuxDesign": "UI/UX Design",
+      "tagProductDesign": "Product Design",
+      "tagFigma": "Figma",
+      "tagBrandIdentity": "Brand Identity",
+      "tag3dModeling": "3D Modeling",
+      "tagSubstancePainter": "Substance Painter",
+      "tagBlender": "Blender"
+    },
+    "education": {
+      "eyebrow": "education",
+      "eyebrowFlag": "--verbose",
+      "headingPre": "Academic",
+      "headingHighlight": "Background",
+      "intro": "Formal education and professional certifications that built the technical foundation behind my work.",
+      "degreeLabel": "degree",
+      "certificationsLabel": "certifications"
+    },
+    "certificationsPage": {
+      "eyebrow": "Certifications",
+      "headingPre": "Skills",
+      "headingHighlight": "Validated",
+      "intro": "Professional certifications that complement my hands-on experience with structured learning."
+    },
+    "projectsSection": {
+      "eyebrow": "Projects",
+      "headingPre": "Things I've",
+      "headingHighlight": "Built & Designed",
+      "intro": "A cross-disciplinary portfolio spanning systems analysis, UX design, and 3D visualization.",
+      "findOutMore": "Find out more"
+    },
+    "projectDetail": {
+      "overviewHeadingPre": "Project",
+      "overviewHeadingHighlight": "Overview",
+      "roleLabel": "Role",
+      "typeLabel": "Type",
+      "aboutLabel": "About",
+      "techToolsLabel": "Tech & Tools",
+      "allProjectsLabel": "All Projects",
+      "backToProjects": "Back to Projects"
+    },
+    "projects": {
+      "scClaims": {
+        "type": "UI/UX",
+        "description": "A web-based platform that streamlines senior citizen discount validation by allowing users to upload Excel records with SKU details. The system automatically validates records, ensuring accurate and quick reimbursements to pharmacies and hospitals."
+      },
+      "yoo": {
+        "type": "UI/UX",
+        "description": "An app that combines food delivery and transportation services in one platform. Offers secure deliveries and reliable transportation for personal needs, with an easy-to-use interface for managing errands and travel."
+      },
+      "iqmk": {
+        "type": "UI/UX",
+        "description": "An app supporting people in achieving wellness and financial goals. Offers premium Muscadine grape products and a low-risk business opportunity through direct sales, e-commerce, and network marketing."
+      },
+      "countryscape": {
+        "type": "UI/UX",
+        "description": "A hotel booking platform offering properties with breathtaking views for every mood — peace, adventure, or relaxation. Easy booking ensures a stress-free vacation experience."
+      },
+      "exodia3dGameAssets": {
+        "type": "3D / Visualization",
+        "description": "A sample of my 3D model contributions from the company that helped me mold my skills in 3D modelling.",
+        "credit": "In collaboration with Exodia Game Development Studio",
+        "carouselLabel": "Daily Activities at the Studio"
+      },
+      "clinictrack": {
+        "type": "Web App",
+        "description": "End-to-end clinic management system covering patient records, appointments, billing, and reporting."
+      },
+      "lumina": {
+        "type": "UI/UX",
+        "description": "Full UX audit and redesign of an e-commerce platform, reducing cart abandonment by 34% in A/B testing."
+      },
+      "archvizStudio": {
+        "type": "3D / Visualization",
+        "description": "Photorealistic 3D product visualizations for a furniture brand — modeled, textured, and rendered in Blender."
+      },
+      "flowmap": {
+        "type": "Systems",
+        "description": "Mapped and documented AS-IS / TO-BE processes for a logistics firm, identifying 6 bottlenecks and reducing cycle time by 22%."
+      },
+      "portfolio2025": {
+        "type": "Full-Stack",
+        "description": "Designed and built my 2025 portfolio using Next.js 15, Tailwind v4, and a custom multi-year routing architecture."
+      }
+    },
+    "books": {
+      "eyebrow": "Reading List",
+      "headingPre": "Books That",
+      "headingHighlight": "Shaped Me",
+      "intro": "The titles that fundamentally changed how I think about design, systems, and people.",
+      "designOfEverydayThings": {
+        "tag": "UX Design",
+        "insight": "Taught me that <em>good design is invisible</em> — when things work, people don't notice the design; they only notice when it fails.",
+        "takeaway": "Design for discoverability and feedback"
+      },
+      "thinkingFastAndSlow": {
+        "tag": "Decision Science",
+        "insight": "Reframed how I approach user research — understanding that users operate on <em>intuition first</em>, logic second.",
+        "takeaway": "Design for System 1 thinking"
+      },
+      "atomicHabits": {
+        "tag": "Self-Mastery",
+        "insight": "Small, consistent improvements compound over time — <em>you don't rise to your goals, you fall to your systems</em>.",
+        "takeaway": "Systems beat goals"
+      },
+      "cleanCode": {
+        "tag": "Engineering",
+        "insight": "Even as a designer-analyst, understanding clean code principles made me a <em>better systems thinker</em> and collaborator.",
+        "takeaway": "Clarity over cleverness"
+      },
+      "leanStartup": {
+        "tag": "Product Strategy",
+        "insight": "Build–Measure–Learn loops shaped how I frame <em>every design and analysis deliverable</em> as a hypothesis to test.",
+        "takeaway": "Validated learning over vanity metrics"
+      }
+    },
+    "approachSection": {
+      "eyebrow": "My Approach",
+      "headingPre": "How I",
+      "headingHighlight": "Work",
+      "intro": "A structured, iterative process that keeps stakeholders aligned and solutions grounded in reality."
+    },
+    "approach": {
+      "discover": {
+        "title": "Discover",
+        "description": "Stakeholder interviews, competitive analysis, and requirements gathering. I ask uncomfortable questions until the real problem is visible."
+      },
+      "design": {
+        "title": "Design",
+        "description": "Low-fi sketches → wireframes → interactive prototypes. Each iteration validated with real users before moving to high-fidelity."
+      },
+      "analyze": {
+        "title": "Analyze",
+        "description": "Process models, data flows, and system specifications. Translating fuzzy requirements into precise, actionable documentation."
+      },
+      "deliver": {
+        "title": "Deliver",
+        "description": "Handoff-ready specs, developer collaboration, and post-launch analysis. The work doesn't end at delivery — it starts there."
+      }
+    },
+    "gallery": {
+      "eyebrow": "Life Beyond the Screen",
+      "headingPre": "The",
+      "headingHighlight": "Explorer",
+      "headingPost": "in Me",
+      "intro": "Outside of work, I embark on adventures that push me further — because the best experiences are usually the ones you almost didn't do."
+    },
+    "contact": {
+      "eyebrow": "Contact",
+      "headingPre": "Let's",
+      "headingHighlight": "Work Together",
+      "intro": "Whether you have a project in mind or just want to connect — I'd love to hear from you.",
+      "openTo": "I'm currently open to freelance projects, full-time roles, and collaborations in systems analysis, UI/UX design, and 3D visualization.",
+      "emailLabel": "Email",
+      "emailSub": "Best for project enquiries",
+      "linkedinLabel": "LinkedIn",
+      "linkedinSub": "Connect professionally",
+      "formTitle": "Send a Message",
+      "firstNameLabel": "First Name",
+      "firstNamePlaceholder": "Your first name",
+      "lastNameLabel": "Last Name",
+      "lastNamePlaceholder": "Your last name",
+      "emailFieldLabel": "Email",
+      "emailPlaceholder": "your@email.com",
+      "messageLabel": "Message",
+      "messagePlaceholder": "Tell me about your project or idea…",
+      "sendButton": "Send Message",
+      "errorFirstNameMin": "First name must be at least 2 characters.",
+      "errorFirstNameMax": "First name must be at most 50 characters.",
+      "errorLastNameMin": "Last name must be at least 2 characters.",
+      "errorLastNameMax": "Last name must be at most 50 characters.",
+      "errorLastNameRequired": "Last name is required.",
+      "errorEmailInvalid": "Please enter a valid email address.",
+      "errorEmailMin": "Email must be at least 10 characters.",
+      "errorEmailMax": "Email must be at most 50 characters.",
+      "errorMessageMax": "Message must be at most 250 characters.",
+      "errorMessageRequired": "Message is required.",
+      "toastTitle": "Message sent!",
+      "toastDescription": "Thank you for reaching out. I'll get back to you soon."
+    },
+    "stubPages": {
+      "projects": "Projects",
+      "contact": "Contact"
+    }
   }
 }

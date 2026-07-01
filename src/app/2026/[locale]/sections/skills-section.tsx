@@ -1,9 +1,21 @@
+"use client";
+
 import { Wrench } from "lucide-react";
+import { useTranslation } from "react-i18next";
 import { cn } from "@/lib/utils";
+import { translate } from "@/lib";
 import { SKILLS } from "../data/portfolio-data";
 import Image from "next/image";
 
 export default function SkillsSection2026() {
+  const { t } = useTranslation();
+
+  const CATEGORY_LABELS: Record<string, string> = {
+    "3D & Creative": translate(t, "portfolio2026.skills.category3d"),
+    "UI/UX & Design": translate(t, "portfolio2026.skills.categoryUiux"),
+    "Systems & Analysis": translate(t, "portfolio2026.skills.categorySystems"),
+  };
+
   return (
     <section
       id="skills"
@@ -12,17 +24,17 @@ export default function SkillsSection2026() {
       {/* Header */}
       <div className="flex items-center gap-1.5 text-amethyst-500 font-poppins font-bold text-[0.72rem] uppercase tracking-[2.5px] mb-2">
         <Wrench size={13} strokeWidth={1.75} />
-        Skills &amp; Tools
+        {translate(t, "portfolio2026.skills.eyebrow")}
       </div>
       <h2
         className="font-poppins font-bold text-woodsmoke-900 dark:text-woodsmoke-50 mb-2"
         style={{ fontSize: "clamp(1.7rem,3vw,2.4rem)", lineHeight: 1.2 }}
       >
-        My <span className="text-amethyst-500">Toolkit</span>
+        {translate(t, "portfolio2026.skills.headingPre")}{" "}
+        <span className="text-amethyst-500">{translate(t, "portfolio2026.skills.headingHighlight")}</span>
       </h2>
       <p className="text-woodsmoke-500 dark:text-woodsmoke-400 text-[0.95rem] leading-[1.75] max-w-140 mb-12">
-        Tools and technologies I&apos;ve used across 3D modeling, design, and
-        systems analysis.
+        {translate(t, "portfolio2026.skills.intro")}
       </p>
 
       <div className="flex flex-col gap-11">
@@ -35,7 +47,7 @@ export default function SkillsSection2026() {
                 className="text-amethyst-500"
                 strokeWidth={1.75}
               />
-              {category}
+              {CATEGORY_LABELS[category] ?? category}
               <span className="flex-1 h-px bg-woodsmoke-200 dark:bg-woodsmoke-700" />
             </div>
 

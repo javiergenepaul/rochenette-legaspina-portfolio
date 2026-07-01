@@ -1,10 +1,18 @@
+"use client";
+
+import { usePathname } from "next/navigation";
+import { useTranslation } from "react-i18next";
 import { Compass, Search, Pencil, FileText, Rocket } from "lucide-react";
 import { cn } from "@/lib/utils";
-import { APPROACH_STEPS } from "../data/portfolio-data";
+import { translate } from "@/lib";
+import { getApproachSteps } from "../data/portfolio-data";
 
 const STEP_ICONS = [Search, Pencil, FileText, Rocket];
 
 export default function ApproachSection2026() {
+  const locale = usePathname().split("/")[2] ?? "en";
+  const APPROACH_STEPS = getApproachSteps(locale);
+  const { t } = useTranslation();
   return (
     <section
       id="approach"
@@ -28,17 +36,16 @@ export default function ApproachSection2026() {
       <div className="relative z-10">
         <div className="flex items-center gap-1.5 text-amethyst-300/90 font-poppins font-bold text-[0.72rem] uppercase tracking-[2.5px] mb-2">
           <Compass size={13} strokeWidth={1.75} />
-          My Approach
+          {translate(t, "portfolio2026.approachSection.eyebrow")}
         </div>
         <h2
           className="font-poppins font-bold text-white mb-2"
           style={{ fontSize: "clamp(1.7rem,3vw,2.4rem)", lineHeight: 1.2 }}
         >
-          How I <span className="text-amethyst-300">Work</span>
+          {translate(t, "portfolio2026.approachSection.headingPre")} <span className="text-amethyst-300">{translate(t, "portfolio2026.approachSection.headingHighlight")}</span>
         </h2>
         <p className="text-white/50 text-[0.95rem] leading-[1.75] max-w-140 mb-12">
-          A structured, iterative process that keeps stakeholders aligned and
-          solutions grounded in reality.
+          {translate(t, "portfolio2026.approachSection.intro")}
         </p>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">

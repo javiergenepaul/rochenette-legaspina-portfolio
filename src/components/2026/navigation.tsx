@@ -3,24 +3,29 @@
 import { useTheme } from "next-themes";
 import { useRouter, usePathname } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
+import { useTranslation } from "react-i18next";
 import {
   User, Wrench, GraduationCap, FolderOpen,
   BookOpen, Compass, Send,
   Sun, Moon, ChevronDown, AlignJustify, X, Briefcase,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { translate } from "@/lib";
 import { use2026UIStore } from "@/app/2026/store/ui-store";
 
-const NAV_LINKS = [
-  { href: "#about",        label: "About",       Icon: User },
-  { href: "#skills",       label: "Skills",      Icon: Wrench },
-  { href: "#work",         label: "Experience",  Icon: Briefcase },
-  { href: "#education",    label: "Education",   Icon: GraduationCap },
-  { href: "#projects",     label: "Projects",    Icon: FolderOpen },
-  { href: "#books",        label: "Books",       Icon: BookOpen },
-  { href: "#approach",     label: "Approach",    Icon: Compass },
-  { href: "#gallery",      label: "Explorer",    Icon: Compass },
-] as const;
+function useNavLinks() {
+  const { t } = useTranslation();
+  return [
+    { href: "#about",        label: translate(t, "portfolio2026.nav.about"),      Icon: User },
+    { href: "#skills",       label: translate(t, "portfolio2026.nav.skills"),     Icon: Wrench },
+    { href: "#work",         label: translate(t, "portfolio2026.nav.experience"), Icon: Briefcase },
+    { href: "#education",    label: translate(t, "portfolio2026.nav.education"),  Icon: GraduationCap },
+    { href: "#projects",     label: translate(t, "portfolio2026.nav.projects"),   Icon: FolderOpen },
+    { href: "#books",        label: translate(t, "portfolio2026.nav.books"),      Icon: BookOpen },
+    { href: "#approach",     label: translate(t, "portfolio2026.nav.approach"),   Icon: Compass },
+    { href: "#gallery",      label: translate(t, "portfolio2026.nav.explorer"),   Icon: Compass },
+  ] as const;
+}
 
 const LOCALES = [
   { code: "en", label: "English",  short: "EN", flag: <FlagEN /> },
@@ -66,6 +71,8 @@ export default function Navigation2026() {
   const isDark = mounted && theme === "dark";
   const router = useRouter();
   const pathname = usePathname();
+  const { t } = useTranslation();
+  const NAV_LINKS = useNavLinks();
   const { isMobileMenuOpen, isLangOpen, toggleMobileMenu, closeMobileMenu, toggleLang, closeLang } =
     use2026UIStore();
 
@@ -96,7 +103,10 @@ export default function Navigation2026() {
   function setLocale(code: string) {
     closeLang();
     closeMobileMenu();
-    router.push(`/2026/${code}`);
+    // Preserve the current path (e.g. /2026/en/projects/slug -> /2026/de/projects/slug)
+    const nextParts = [...parts];
+    nextParts[2] = code;
+    router.push(nextParts.join("/") || `/2026/${code}`);
   }
 
   return (
@@ -132,13 +142,13 @@ export default function Navigation2026() {
         </a>
 
         {/* Links — hidden on mobile */}
-        <ul className="hidden md:flex gap-5 list-none">
+        <ul className="hidden lg:flex gap-3.5 list-none">
           {NAV_LINKS.map(({ href, label, Icon }) => (
             <li key={href}>
               <a
                 href={navHref(href)}
                 className={cn(
-                  "group flex items-center gap-1 font-poppins font-medium text-[0.8rem] no-underline",
+                  "group flex items-center gap-1 font-poppins font-medium text-[0.8rem] no-underline whitespace-nowrap",
                   "relative pb-0.5 transition-colors duration-300",
                   "text-woodsmoke-500 hover:text-amethyst-500",
                   "dark:text-woodsmoke-400 dark:hover:text-amethyst-400",
@@ -147,7 +157,7 @@ export default function Navigation2026() {
                   "after:transition-[width] after:duration-300 hover:after:w-full"
                 )}
               >
-                <Icon size={13} className="transition-colors duration-300 text-woodsmoke-400 group-hover:text-amethyst-500 dark:group-hover:text-amethyst-400" />
+                <Icon size={13} className="shrink-0 transition-colors duration-300 text-woodsmoke-400 group-hover:text-amethyst-500 dark:group-hover:text-amethyst-400" />
                 {label}
               </a>
             </li>
@@ -239,21 +249,21 @@ export default function Navigation2026() {
             target="_blank"
             rel="noopener noreferrer"
             className={cn(
-              "hidden md:flex items-center gap-1.5 px-4 py-2 rounded-full",
+              "hidden lg:flex items-center gap-1.5 px-3.5 py-2 rounded-full whitespace-nowrap shrink-0",
               "font-poppins font-bold text-[0.78rem] text-white no-underline",
               "bg-linear-to-br from-amethyst-500 to-amethyst-700",
               "shadow-[0_4px_14px_rgba(211,47,47,.35)]",
               "transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_6px_20px_rgba(211,47,47,.45)]"
             )}
           >
-            <Send size={13} strokeWidth={1.75} />
-            Let&apos;s Talk
+            <Send size={13} strokeWidth={1.75} className="shrink-0" />
+            {translate(t, "portfolio2026.nav.letsTalk")}
           </a>
 
           {/* Hamburger */}
           <button
             onClick={toggleMobileMenu}
-            className="md:hidden p-1 text-amethyst-500"
+            className="lg:hidden p-1 text-amethyst-500"
           >
             {isMobileMenuOpen ? <X size={22} /> : <AlignJustify size={22} />}
           </button>
@@ -302,7 +312,7 @@ export default function Navigation2026() {
             )}
           >
             <Send size={14} strokeWidth={1.75} />
-            Let&apos;s Talk
+            {translate(t, "portfolio2026.nav.letsTalk")}
           </a>
         </div>
       )}

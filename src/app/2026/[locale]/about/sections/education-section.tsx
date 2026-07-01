@@ -1,10 +1,19 @@
+"use client";
+
 import Image from "next/image";
+import { usePathname } from "next/navigation";
+import { useTranslation } from "react-i18next";
 import { GraduationCap, Award, Building2, Calendar, ChevronRight, Terminal } from "lucide-react";
 import { cn } from "@/lib/utils";
-import { EDUCATION_EXPERIENCE, CERTIFICATION_EXPERIENCE, LINK_URL } from "@/config";
+import { translate } from "@/lib";
+import { getEducationExperience, getCertificationExperience, LINK_URL } from "@/config";
 
 export default function EducationSection2026About() {
+  const locale = usePathname().split("/")[2] ?? "en";
+  const EDUCATION_EXPERIENCE = getEducationExperience(locale);
+  const CERTIFICATION_EXPERIENCE = getCertificationExperience(locale);
   const edu = EDUCATION_EXPERIENCE[0];
+  const { t } = useTranslation();
 
   return (
     <section
@@ -26,24 +35,24 @@ export default function EducationSection2026About() {
         <div className="flex items-center gap-2 font-mono text-[0.7rem] uppercase tracking-[3px] mb-3">
           <Terminal size={12} className="text-amethyst-500" strokeWidth={1.75} />
           <span className="text-white/30">$</span>
-          <span className="text-amethyst-400">education</span>
-          <span className="text-white/25">--verbose</span>
+          <span className="text-amethyst-400">{translate(t, "portfolio2026.education.eyebrow")}</span>
+          <span className="text-white/25">{translate(t, "portfolio2026.education.eyebrowFlag")}</span>
         </div>
         <h2
           className="font-poppins font-bold text-white mb-2"
           style={{ fontSize: "clamp(1.7rem,3vw,2.4rem)", lineHeight: 1.2 }}
         >
-          Academic <span className="text-amethyst-500">Background</span>
+          {translate(t, "portfolio2026.education.headingPre")} <span className="text-amethyst-500">{translate(t, "portfolio2026.education.headingHighlight")}</span>
         </h2>
         <p className="text-white/45 text-[0.92rem] leading-[1.75] max-w-140 mb-12">
-          Formal education and professional certifications that built the technical foundation behind my work.
+          {translate(t, "portfolio2026.education.intro")}
         </p>
 
         {/* ── Degree ─────────────────────────────────────────────────────── */}
         <div className="mb-10">
           <div className="flex items-center gap-2 font-mono text-[0.66rem] text-white/30 uppercase tracking-[2px] mb-4">
             <GraduationCap size={12} className="text-amethyst-500" strokeWidth={1.75} />
-            <span>degree</span>
+            <span>{translate(t, "portfolio2026.education.degreeLabel")}</span>
             <span className="flex-1 h-px bg-white/7" />
           </div>
 
@@ -99,7 +108,7 @@ export default function EducationSection2026About() {
         <div>
           <div className="flex items-center gap-2 font-mono text-[0.66rem] text-white/30 uppercase tracking-[2px] mb-4">
             <Award size={12} className="text-amethyst-500" strokeWidth={1.75} />
-            <span>certifications</span>
+            <span>{translate(t, "portfolio2026.education.certificationsLabel")}</span>
             <span className="flex-1 h-px bg-white/7" />
           </div>
 

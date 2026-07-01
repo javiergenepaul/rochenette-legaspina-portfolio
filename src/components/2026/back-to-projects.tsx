@@ -1,8 +1,11 @@
 "use client";
 
 import { ArrowLeft } from "lucide-react";
+import { useTranslation } from "react-i18next";
+import { translate } from "@/lib";
 
 export default function BackToProjects({ locale }: { locale: string }) {
+  const { t } = useTranslation();
   return (
     <a
       href={`/2026/${locale}#projects`}
@@ -11,7 +14,7 @@ export default function BackToProjects({ locale }: { locale: string }) {
       <span className="w-7 h-7 rounded-full bg-amethyst-50 dark:bg-amethyst-500/15 border border-amethyst-100 dark:border-amethyst-500/25 flex items-center justify-center group-hover:bg-amethyst-500 group-hover:border-amethyst-500 group-hover:text-white transition-all duration-200">
         <ArrowLeft size={13} strokeWidth={2.5} />
       </span>
-      Back to Projects
+      {translate(t, "portfolio2026.projectDetail.backToProjects")}
     </a>
   );
 }

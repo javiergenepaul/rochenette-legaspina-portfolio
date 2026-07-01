@@ -2,8 +2,10 @@
 
 import Image from "next/image";
 import { motion } from "framer-motion";
+import { useTranslation } from "react-i18next";
 import { Compass } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { translate } from "@/lib";
 import { useState } from "react";
 
 const PHOTOS: { src: string; alt: string }[] = [
@@ -89,22 +91,23 @@ function MarqueeRow({
 export default function GallerySection() {
   const rowOne = PHOTOS;
   const rowTwo = [...PHOTOS].reverse();
+  const { t } = useTranslation();
 
   return (
     <section id="gallery" className="py-24 bg-woodsmoke-100 dark:bg-woodsmoke-900 overflow-x-hidden">
       <div className="px-[7%]">
         <div className="flex items-center gap-1.5 text-amethyst-500 font-poppins font-bold text-[0.72rem] uppercase tracking-[2.5px] mb-2">
           <Compass size={13} strokeWidth={1.75} />
-          Life Beyond the Screen
+          {translate(t, "portfolio2026.gallery.eyebrow")}
         </div>
         <h2
           className="font-poppins font-bold text-woodsmoke-900 dark:text-woodsmoke-50 mb-3"
           style={{ fontSize: "clamp(1.7rem,3vw,2.4rem)", lineHeight: 1.2 }}
         >
-          The <span className="text-amethyst-500">Explorer</span> in Me
+          {translate(t, "portfolio2026.gallery.headingPre")} <span className="text-amethyst-500">{translate(t, "portfolio2026.gallery.headingHighlight")}</span> {translate(t, "portfolio2026.gallery.headingPost")}
         </h2>
         <p className="text-woodsmoke-500 dark:text-woodsmoke-400 text-[0.92rem] leading-[1.75] max-w-120 mb-12">
-          Outside of work, I embark on adventures that push me further — because the best experiences are usually the ones you almost didn&apos;t do.
+          {translate(t, "portfolio2026.gallery.intro")}
         </p>
       </div>
 

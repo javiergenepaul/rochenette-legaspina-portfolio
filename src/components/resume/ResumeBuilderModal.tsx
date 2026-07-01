@@ -1,8 +1,8 @@
 "use client";
 
-import { useState, useCallback } from "react";
+import { useState, useCallback, useEffect, useRef } from "react";
 import * as Dialog from "@radix-ui/react-dialog";
-import { X, Download, FileText, SlidersHorizontal, Eye } from "lucide-react";
+import { X, Download, FileText, SlidersHorizontal, Eye, TriangleAlert } from "lucide-react";
 import { cn } from "@/lib/utils";
 import {
   RESUME_SECTIONS,
@@ -11,6 +11,7 @@ import {
   type ResumeMode,
 } from "@/config/resumeData";
 import { ResumePreview } from "./ResumePreview";
+import { ResumeDocument } from "./pdf/ResumeDocument";
 
 // ─── Constants ────────────────────────────────────────────────────────────────
 
@@ -170,6 +171,7 @@ export function ResumeBuilderModal({ trigger, open: controlledOpen, onOpenChange
   const [visibleSections, setVisibleSections] = useState<string[]>(RESUME_SECTIONS.map((s) => s.key));
   const [isDownloading, setIsDownloading]     = useState(false);
   const [mobileTab, setMobileTab]             = useState<"settings" | "preview">("preview");
+  const [atsWarningOpen, setAtsWarningOpen]   = useState(false);
 
   const toggleSection = useCallback((key: string) => {
     setVisibleSections((prev) =>
@@ -177,62 +179,59 @@ export function ResumeBuilderModal({ trigger, open: controlledOpen, onOpenChange
     );
   }, []);
 
+  // Warn once per builder session when the user lands on the Modern theme —
+  // it's designed for visual polish, not for ATS parsing accuracy.
+  const hasWarnedRef = useRef(false);
+  useEffect(() => {
+    if (!isOpen) {
+      hasWarnedRef.current = false;
+      return;
+    }
+    if (theme === "modern" && !hasWarnedRef.current) {
+      setAtsWarningOpen(true);
+      hasWarnedRef.current = true;
+    }
+  }, [isOpen, theme]);
+
+  const handleThemeSelect = useCallback((value: ResumeTheme) => {
+    setTheme(value);
+    if (value === "modern") {
+      setAtsWarningOpen(true);
+      hasWarnedRef.current = true;
+    }
+  }, []);
+
   const handleDownload = useCallback(async () => {
     setIsDownloading(true);
     try {
-      const [{ default: html2canvas }, { jsPDF }] = await Promise.all([
-        import("html2canvas"),
-        import("jspdf"),
-      ]);
+      const { pdf } = await import("@react-pdf/renderer");
 
-      const element = document.getElementById("resume-content");
-      if (!element) return;
+      const blob = await pdf(
+        <ResumeDocument
+          category={category}
+          theme={theme}
+          mode={mode}
+          visibleSections={visibleSections}
+        />,
+      ).toBlob();
 
-      await document.fonts.ready;
-
-      const canvas = await html2canvas(element, {
-        scale: 2,
-        useCORS: true,
-        logging: false,
-        backgroundColor: "#ffffff",
-      });
-
-      const A4_W_MM  = 210;
-      const A4_H_MM  = 297;
-      const pdf      = new jsPDF({ unit: "mm", format: "a4", orientation: "portrait" });
-      const imgData  = canvas.toDataURL("image/jpeg", 0.98);
-
-      // Scale image to fit A4 width; split across pages if needed
-      const pxPerMm  = canvas.width / A4_W_MM;
-      const totalH   = canvas.height / pxPerMm;
-      let remaining  = totalH;
-      let srcY       = 0;
-
-      while (remaining > 0) {
-        const sliceH = Math.min(remaining, A4_H_MM);
-        if (srcY > 0) pdf.addPage();
-        pdf.addImage(
-          imgData,
-          "JPEG",
-          0,
-          -(srcY),
-          A4_W_MM,
-          totalH,
-        );
-        srcY      += sliceH;
-        remaining -= sliceH;
-      }
-
-      pdf.save(`rochenette-legaspina-${category}-resume.pdf`);
+      const url = URL.createObjectURL(blob);
+      const link = document.createElement("a");
+      link.href = url;
+      link.download = `rochenette-legaspina-${category}-resume.pdf`;
+      document.body.appendChild(link);
+      link.click();
+      link.remove();
+      URL.revokeObjectURL(url);
     } catch (err) {
       console.error("PDF download failed:", err);
     } finally {
       setIsDownloading(false);
     }
-  }, [category]);
+  }, [category, theme, mode, visibleSections]);
 
   const settingsProps = {
-    category, setCategory, theme, setTheme, mode, setMode,
+    category, setCategory, theme, setTheme: handleThemeSelect, mode, setMode,
     visibleSections, toggleSection, isDownloading, onDownload: handleDownload,
   };
 
@@ -343,6 +342,56 @@ export function ResumeBuilderModal({ trigger, open: controlledOpen, onOpenChange
           </div>
         </Dialog.Content>
       </Dialog.Portal>
+
+      {/* ── ATS warning — Modern theme trades ATS-parsing accuracy for looks ── */}
+      <Dialog.Root open={atsWarningOpen} onOpenChange={setAtsWarningOpen}>
+        <Dialog.Portal>
+          <Dialog.Overlay className="fixed inset-0 bg-black/70 backdrop-blur-sm z-10001" />
+          <Dialog.Content
+            aria-describedby="ats-warning-description"
+            className={cn(
+              "fixed z-10002 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2",
+              "w-[min(400px,calc(100vw-32px))] rounded-2xl bg-woodsmoke-950 border border-amber-500/30",
+              "p-5 shadow-2xl",
+            )}
+          >
+            <div className="flex items-start gap-3">
+              <div className="shrink-0 flex items-center justify-center w-9 h-9 rounded-full bg-amber-500/15 text-amber-400">
+                <TriangleAlert size={18} />
+              </div>
+              <div className="flex-1">
+                <Dialog.Title className="text-sm font-bold text-white">
+                  Modern theme isn&apos;t 100% ATS-ready
+                </Dialog.Title>
+                <Dialog.Description id="ats-warning-description" className="mt-1.5 text-xs leading-relaxed text-amethyst-200">
+                  Modern is built for looks and beauty, not automated screening — its two-column
+                  layout can confuse some Applicant Tracking Systems. If this resume is going
+                  through a system check, use{" "}
+                  <strong className="text-white">Simple</strong>{" "}
+                  instead — it&apos;s designed to be as close to 100% ATS-friendly as possible.
+                </Dialog.Description>
+              </div>
+            </div>
+
+            <div className="mt-5 flex justify-end gap-2">
+              <button
+                onClick={() => {
+                  setTheme("simple");
+                  setAtsWarningOpen(false);
+                }}
+                className="px-3.5 py-2 rounded-lg text-xs font-semibold text-white bg-amethyst-500 hover:bg-amethyst-600 transition-colors"
+              >
+                Switch to Simple
+              </button>
+              <Dialog.Close asChild>
+                <button className="px-3.5 py-2 rounded-lg text-xs font-semibold text-amethyst-300 hover:text-white border border-amethyst-500/30 hover:border-amethyst-500/60 transition-colors">
+                  Keep Modern
+                </button>
+              </Dialog.Close>
+            </div>
+          </Dialog.Content>
+        </Dialog.Portal>
+      </Dialog.Root>
     </Dialog.Root>
   );
 }

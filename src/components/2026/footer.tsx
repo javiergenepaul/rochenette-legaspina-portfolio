@@ -4,6 +4,8 @@ import { Linkedin, Mail, Heart } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { useTheme } from "next-themes";
 import { useState, useEffect } from "react";
+import { useTranslation } from "react-i18next";
+import { translate } from "@/lib";
 
 const SOCIAL = [
   { href: "mailto:rochenettelegaspina18@gmail.com",                        Icon: Mail,     label: "Email" },
@@ -12,6 +14,7 @@ const SOCIAL = [
 
 export default function Footer2026() {
   const { theme } = useTheme();
+  const { t } = useTranslation();
   const [mounted, setMounted] = useState(false);
   useEffect(() => { setMounted(true); }, []);
   const isDark = mounted && theme === "dark";
@@ -65,9 +68,9 @@ export default function Footer2026() {
       </div>
 
       <p className="text-caption">
-        © {new Date().getFullYear()} Rochenette Legaspina — Built with{" "}
+        © {new Date().getFullYear()} Rochenette Legaspina — {translate(t, "portfolio2026.footer.builtWith")}{" "}
         <Heart size={11} className="inline text-amethyst-500 fill-amethyst-500" />{" "}
-        &amp; lots of coffee
+        {translate(t, "portfolio2026.footer.andCoffee")}
       </p>
     </footer>
   );

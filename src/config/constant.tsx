@@ -15,8 +15,14 @@ import moment from "moment";
 export const locale =
   typeof window !== "undefined" ? navigator.language.split("-")[0] : "en";
 
-const getTranslations = () => {
-  const t = i18n.t.bind(i18n);
+/**
+ * Locale-aware translation snapshot. Takes the current route locale
+ * (e.g. from usePathname) rather than relying on module-load-time state,
+ * since i18n/server.ts's instance is a fixed, un-mutated "en" instance
+ * shared across requests — getFixedT reads a language without touching it.
+ */
+const getTranslations = (lng: string = "en") => {
+  const t = i18n.getFixedT(lng);
 
   const getProjectInformationDescription = (
     project: "countryScape" | "scClaims" | "iqmk" | "yoo",
@@ -243,8 +249,6 @@ const getTranslations = () => {
   };
 };
 
-const translations = getTranslations();
-
 export const LINK_URL = {
   linkedIn: "https://www.linkedin.com/in/rochenette-legaspina-677a64263/",
   behance: "https://www.behance.net/rochenelegaspi/analytics",
@@ -259,60 +263,65 @@ export const LINK_URL = {
   upwork: "https://www.upwork.com/freelancers/~018a61313da14e7d96",
 };
 
-export const WORK_EXPERIENCE: AboutMeContentInterface[] = [
-  // Alliance
-  {
-    title: translations.work.alliance.title,
-    subTitle: translations.work.alliance.companyName,
-    description: [
-      translations.work.alliance.description[1],
-      translations.work.alliance.description[2],
-      translations.work.alliance.description[3],
-      translations.work.alliance.description[4],
-      translations.work.alliance.description[5],
-    ],
-    image: ASSETS.AllianceLogo,
-    imageAlt: translations.work.alliance.imageAlt,
-    backgroundColor: "bg-[#FFDADA]",
-    url: LINK_URL.alliance,
-    startDate: moment("2023"),
-    endDate: moment("2025"),
-  },
-  // Mach95
-  {
-    title: translations.work.mach95.title,
-    subTitle: translations.work.mach95.companyName,
-    description: [
-      translations.work.mach95.description[1],
-      translations.work.mach95.description[2],
-      translations.work.mach95.description[3],
-      translations.work.mach95.description[4],
-    ],
-    image: ASSETS.Mach95Logo,
-    imageAlt: translations.work.mach95.imageAlt,
-    backgroundColor: "bg-[#D0CFFF]",
-    url: LINK_URL.mach95,
-    startDate: moment("2021"),
-    endDate: moment("2023"),
-  },
-  // Exodia
-  {
-    title: translations.work.exodia.title,
-    subTitle: translations.work.exodia.companyName,
-    description: [
-      translations.work.exodia.description[1],
-      translations.work.exodia.description[2],
-      translations.work.exodia.description[3],
-      translations.work.exodia.description[4],
-    ],
-    image: ASSETS.ExodiaLogo,
-    imageAlt: translations.work.exodia.imageAlt,
-    backgroundColor: "bg-[#FBCBB2]",
-    url: LINK_URL.exodia,
-    startDate: moment("2019"),
-    endDate: moment("2021"),
-  },
-];
+export function getWorkExperience(lng: string = "en"): AboutMeContentInterface[] {
+  const translations = getTranslations(lng);
+  return [
+    // Alliance
+    {
+      title: translations.work.alliance.title,
+      subTitle: translations.work.alliance.companyName,
+      description: [
+        translations.work.alliance.description[1],
+        translations.work.alliance.description[2],
+        translations.work.alliance.description[3],
+        translations.work.alliance.description[4],
+        translations.work.alliance.description[5],
+      ],
+      image: ASSETS.AllianceLogo,
+      imageAlt: translations.work.alliance.imageAlt,
+      backgroundColor: "bg-[#FFDADA]",
+      url: LINK_URL.alliance,
+      startDate: moment("2023"),
+      endDate: moment("2025"),
+    },
+    // Mach95
+    {
+      title: translations.work.mach95.title,
+      subTitle: translations.work.mach95.companyName,
+      description: [
+        translations.work.mach95.description[1],
+        translations.work.mach95.description[2],
+        translations.work.mach95.description[3],
+        translations.work.mach95.description[4],
+      ],
+      image: ASSETS.Mach95Logo,
+      imageAlt: translations.work.mach95.imageAlt,
+      backgroundColor: "bg-[#D0CFFF]",
+      url: LINK_URL.mach95,
+      startDate: moment("2021"),
+      endDate: moment("2023"),
+    },
+    // Exodia
+    {
+      title: translations.work.exodia.title,
+      subTitle: translations.work.exodia.companyName,
+      description: [
+        translations.work.exodia.description[1],
+        translations.work.exodia.description[2],
+        translations.work.exodia.description[3],
+        translations.work.exodia.description[4],
+      ],
+      image: ASSETS.ExodiaLogo,
+      imageAlt: translations.work.exodia.imageAlt,
+      backgroundColor: "bg-[#FBCBB2]",
+      url: LINK_URL.exodia,
+      startDate: moment("2019"),
+      endDate: moment("2021"),
+    },
+  ];
+}
+
+export const WORK_EXPERIENCE: AboutMeContentInterface[] = getWorkExperience("en");
 
 export const SKILLS_AND_TOOLS: SkillsAndToolsInterface[] = [
   {
@@ -336,7 +345,7 @@ export const SKILLS_AND_TOOLS: SkillsAndToolsInterface[] = [
     title: "Photoshop",
     url: LINK_URL.blender,
     alt: "Photoshop Logo",
-    name: "Photo Editting",
+    name: "Photo Editing",
     designation: "Photoshop",
   },
   {
@@ -365,52 +374,62 @@ export const SKILLS_AND_TOOLS: SkillsAndToolsInterface[] = [
   },
 ];
 
-export const EDUCATION_EXPERIENCE: AboutMeContentInterface[] = [
-  {
-    title: translations.education.title,
-    subTitle: translations.education.subTitle,
-    description: [
-      translations.education.description[1],
-      translations.education.description[2],
-      translations.education.description[3],
-    ],
-    image: ASSETS.UCLogo,
-    imageAlt: translations.education.imageAlt,
-    startDate: moment("2016"),
-    endDate: moment("2021"),
-  },
-];
+export function getEducationExperience(lng: string = "en"): AboutMeContentInterface[] {
+  const translations = getTranslations(lng);
+  return [
+    {
+      title: translations.education.title,
+      subTitle: translations.education.subTitle,
+      description: [
+        translations.education.description[1],
+        translations.education.description[2],
+        translations.education.description[3],
+      ],
+      image: ASSETS.UCLogo,
+      imageAlt: translations.education.imageAlt,
+      startDate: moment("2016"),
+      endDate: moment("2021"),
+    },
+  ];
+}
 
-export const CERTIFICATION_EXPERIENCE: AboutMeContentInterface[] = [
-  {
-    title: translations.certification.dataAnalytics.title,
-    subTitle: translations.certification.dataAnalytics.subTitle,
-    description: [
-      translations.certification.dataAnalytics.description[1],
-      translations.certification.dataAnalytics.description[2],
-      translations.certification.dataAnalytics.description[3],
-      translations.certification.dataAnalytics.description[4],
-      translations.certification.dataAnalytics.description[5],
-    ],
-    image: ASSETS.CITLogo,
-    imageAlt: translations.certification.dataAnalytics.imageAlt,
-    backgroundColor: "#FDEEBA",
-  },
-  // {
-  //   title: translations.certification.systemAnalyst.title,
-  //   subTitle: translations.certification.systemAnalyst.subTitle,
-  //   description: [
-  //     translations.certification.systemAnalyst.description[1],
-  //     translations.certification.systemAnalyst.description[2],
-  //     translations.certification.systemAnalyst.description[3],
-  //     translations.certification.systemAnalyst.description[4],
-  //     translations.certification.systemAnalyst.description[5],
-  //   ],
-  //   image: ASSETS.CITLogo,
-  //   imageAlt: translations.certification.systemAnalyst.imageAlt,
-  //   backgroundColor: "#FDEEBA",
-  // },
-];
+export const EDUCATION_EXPERIENCE: AboutMeContentInterface[] = getEducationExperience("en");
+
+export function getCertificationExperience(lng: string = "en"): AboutMeContentInterface[] {
+  const translations = getTranslations(lng);
+  return [
+    {
+      title: translations.certification.dataAnalytics.title,
+      subTitle: translations.certification.dataAnalytics.subTitle,
+      description: [
+        translations.certification.dataAnalytics.description[1],
+        translations.certification.dataAnalytics.description[2],
+        translations.certification.dataAnalytics.description[3],
+        translations.certification.dataAnalytics.description[4],
+        translations.certification.dataAnalytics.description[5],
+      ],
+      image: ASSETS.CITLogo,
+      imageAlt: translations.certification.dataAnalytics.imageAlt,
+      backgroundColor: "#FDEEBA",
+    },
+    // {
+    //   title: translations.certification.systemAnalyst.title,
+    //   subTitle: translations.certification.systemAnalyst.subTitle,
+    //   description: [
+    //     translations.certification.systemAnalyst.description[1],
+    //     translations.certification.systemAnalyst.description[2],
+    //     translations.certification.systemAnalyst.description[3],
+    //     translations.certification.systemAnalyst.description[4],
+    //     translations.certification.systemAnalyst.description[5],
+    //   ],
+    //   image: ASSETS.CITLogo,
+    //   imageAlt: translations.certification.systemAnalyst.imageAlt,
+    //   backgroundColor: "#FDEEBA",
+    // },
+  ];
+}
+
+export const CERTIFICATION_EXPERIENCE: AboutMeContentInterface[] = getCertificationExperience("en");
 
 export const SOCIAL_LINKS: SocialLinksInterface[] = [
   // Linkedin
@@ -536,164 +555,172 @@ export const SOCIAL_LINKS: SocialLinksInterface[] = [
   },
 ];
 
-export const getNavLinks = (year: string, locale: string): NavLinksInterface[] => [
-  { label: PATH.HOME.name, to: PATH.HOME.getPath(year, locale) },
-  { label: PATH.ABOUT.name, to: PATH.ABOUT.getPath(year, locale) },
-  { label: PATH.PROJECT.name, to: PATH.PROJECT.getPath(year, locale) },
-  { label: PATH.CONTACT.name, to: PATH.CONTACT.getPath(year, locale) },
-];
+export const getNavLinks = (year: string, locale: string): NavLinksInterface[] => {
+  const t = i18n.getFixedT(locale);
+  return [
+    { label: translate(t, "navigation.home"), to: PATH.HOME.getPath(year, locale) },
+    { label: translate(t, "navigation.about"), to: PATH.ABOUT.getPath(year, locale) },
+    { label: translate(t, "navigation.project"), to: PATH.PROJECT.getPath(year, locale) },
+    { label: translate(t, "navigation.contact"), to: PATH.CONTACT.getPath(year, locale) },
+  ];
+};
 
-export const PROJECTS: ProjectInterface[] = [
-  // SC Claims
-  {
-    title: translations.projects.scClaims.title,
-    role: translations.projects.scClaims.role,
-    desciption: translations.projects.scClaims.description,
-    information: [
-      {
-        title: translations.projects.information.title.challenge,
-        description: translations.projects.information.scClaims.challenge,
-      },
-      {
-        title: translations.projects.information.title.tools,
-        description: translations.projects.information.scClaims.tools,
-      },
-      {
-        title: translations.projects.information.title.contribution,
-        description: translations.projects.information.scClaims.contribution,
-      },
-    ],
-    sectionId: "sc-claims",
-    mockup: ASSETS.ScClaimsMockup,
-    mockupAlt: "SC Claims Mockup",
-    mockups: [
-      { image: ASSETS.ScClaimsMockup1, alt: "SC Claims Mockup 1" },
-      { image: ASSETS.ScClaimsMockup2, alt: "SC Claims Mockup 2" },
-      { image: ASSETS.ScClaimsMockup1, alt: "SC Claims Mockup 3" },
-    ],
-  },
-  // yoo
-  {
-    title: translations.projects.yoo.title,
-    role: translations.projects.yoo.role,
-    desciption: translations.projects.yoo.description,
-    information: [
-      {
-        title: translations.projects.information.title.challenge,
-        description: translations.projects.information.yoo.challenge,
-      },
-      {
-        title: translations.projects.information.title.tools,
-        description: translations.projects.information.yoo.tools,
-      },
-      {
-        title: translations.projects.information.title.contribution,
-        description: translations.projects.information.yoo.constribution,
-      },
-    ],
-    sectionId: "yoo",
-    mockup: ASSETS.YooMockup,
-    mockupAlt: "YOO Mockup",
-    mockups: [
-      { image: ASSETS.YooMockup1, alt: "YOO Mockup 1" },
-      { image: ASSETS.YooMockup2, alt: "YOO Mockup 2" },
-      { image: ASSETS.YooMockup3, alt: "YOO Mockup 3" },
-    ],
-  },
-  // IQMK
-  {
-    title: translations.projects.iqmk.title,
-    role: translations.projects.iqmk.role,
-    desciption: translations.projects.iqmk.description,
-    information: [
-      {
-        title: translations.projects.information.title.contribution,
-        description: translations.projects.information.iqmk.contribution,
-      },
-      {
-        title: translations.projects.information.title.tools,
-        description: translations.projects.information.iqmk.tools,
-      },
+export function getProjects(lng: string = "en"): ProjectInterface[] {
+  const translations = getTranslations(lng);
+  return [
+    // SC Claims
+    {
+      title: translations.projects.scClaims.title,
+      role: translations.projects.scClaims.role,
+      desciption: translations.projects.scClaims.description,
+      information: [
+        {
+          title: translations.projects.information.title.challenge,
+          description: translations.projects.information.scClaims.challenge,
+        },
+        {
+          title: translations.projects.information.title.tools,
+          description: translations.projects.information.scClaims.tools,
+        },
+        {
+          title: translations.projects.information.title.contribution,
+          description: translations.projects.information.scClaims.contribution,
+        },
+      ],
+      sectionId: "sc-claims",
+      mockup: ASSETS.ScClaimsMockup,
+      mockupAlt: "SC Claims Mockup",
+      mockups: [
+        { image: ASSETS.ScClaimsMockup1, alt: "SC Claims Mockup 1" },
+        { image: ASSETS.ScClaimsMockup2, alt: "SC Claims Mockup 2" },
+        { image: ASSETS.ScClaimsMockup1, alt: "SC Claims Mockup 3" },
+      ],
+    },
+    // yoo
+    {
+      title: translations.projects.yoo.title,
+      role: translations.projects.yoo.role,
+      desciption: translations.projects.yoo.description,
+      information: [
+        {
+          title: translations.projects.information.title.challenge,
+          description: translations.projects.information.yoo.challenge,
+        },
+        {
+          title: translations.projects.information.title.tools,
+          description: translations.projects.information.yoo.tools,
+        },
+        {
+          title: translations.projects.information.title.contribution,
+          description: translations.projects.information.yoo.constribution,
+        },
+      ],
+      sectionId: "yoo",
+      mockup: ASSETS.YooMockup,
+      mockupAlt: "YOO Mockup",
+      mockups: [
+        { image: ASSETS.YooMockup1, alt: "YOO Mockup 1" },
+        { image: ASSETS.YooMockup2, alt: "YOO Mockup 2" },
+        { image: ASSETS.YooMockup3, alt: "YOO Mockup 3" },
+      ],
+    },
+    // IQMK
+    {
+      title: translations.projects.iqmk.title,
+      role: translations.projects.iqmk.role,
+      desciption: translations.projects.iqmk.description,
+      information: [
+        {
+          title: translations.projects.information.title.contribution,
+          description: translations.projects.information.iqmk.contribution,
+        },
+        {
+          title: translations.projects.information.title.tools,
+          description: translations.projects.information.iqmk.tools,
+        },
 
-      {
-        title: translations.projects.information.title.challenge,
-        description: translations.projects.information.iqmk.challenge,
-      },
-    ],
-    sectionId: "iqmk-app",
-    mockup: ASSETS.IQMKMockUp,
-    mockupAlt: "IQMK Mockup",
-    mockups: [
-      { image: ASSETS.IQMKMockUp1, alt: "IQMK Mockup 1" },
-      { image: ASSETS.IQMKMockUp2, alt: "IQMK Mockup 2" },
-      { image: ASSETS.IQMKMockUp3, alt: "IQMK Mockup 3" },
-    ],
-  },
+        {
+          title: translations.projects.information.title.challenge,
+          description: translations.projects.information.iqmk.challenge,
+        },
+      ],
+      sectionId: "iqmk-app",
+      mockup: ASSETS.IQMKMockUp,
+      mockupAlt: "IQMK Mockup",
+      mockups: [
+        { image: ASSETS.IQMKMockUp1, alt: "IQMK Mockup 1" },
+        { image: ASSETS.IQMKMockUp2, alt: "IQMK Mockup 2" },
+        { image: ASSETS.IQMKMockUp3, alt: "IQMK Mockup 3" },
+      ],
+    },
 
-  // Exodia VR Platform — 3D Game Assets
-  {
-    title: "Exodia Studio — 3D Modelling Activities",
-    role: "3D Modeller & Substance Painter",
-    desciption:
-      "A sample of my 3D model contributions from the company that helped me mold my skills in 3D modelling.",
-    information: [
-      {
-        title: "Contribution",
-        description: [
-          "Created 3D models from scratch using Blender.",
-          "Applied full 3D workflows including modelling, UV unwrapping, texturing, and rendering.",
-        ],
-      },
-      {
-        title: "Tools",
-        description: ["Blender", "Substance Painter", "Retopology"],
-      },
-      {
-        title: "Challenge",
-        description: [
-          "Keeping clean quad-based topology by avoiding extra vertices that could distort the surface.",
-          "Keeping planes properly placed to avoid texture issues during rendering, retopology, UV mapping, and texturing in Substance Painter.",
-        ],
-      },
-    ],
-    sectionId: "exodia-3d",
-    mockup: ASSETS.ExodiaSpacecraft,
-    mockupAlt: "Exodia VR Spacecraft",
-    mockups: [
-      { image: ASSETS.ExodiaSpacecraft,    alt: "VR Spacecraft" },
-      { image: ASSETS.ExodiaSpartanHelmet, alt: "Spartan Battle Helmet" },
-      { image: ASSETS.ExodiaSilvanaScepter, alt: "Silvana's Scepter" },
-    ],
-  },
+    // Exodia VR Platform — 3D Game Assets (not sourced from translations — see note below)
+    {
+      title: "Exodia Studio — 3D Modelling Activities",
+      role: "3D Modeller & Substance Painter",
+      desciption:
+        "A sample of my 3D model contributions from the company that helped me mold my skills in 3D modelling.",
+      information: [
+        {
+          title: "Contribution",
+          description: [
+            "Created 3D models from scratch using Blender.",
+            "Applied full 3D workflows including modelling, UV unwrapping, texturing, and rendering.",
+          ],
+        },
+        {
+          title: "Tools",
+          description: ["Blender", "Substance Painter", "Retopology"],
+        },
+        {
+          title: "Challenge",
+          description: [
+            "Keeping clean quad-based topology by avoiding extra vertices that could distort the surface.",
+            "Keeping planes properly placed to avoid texture issues during rendering, retopology, UV mapping, and texturing in Substance Painter.",
+          ],
+        },
+      ],
+      sectionId: "exodia-3d",
+      mockup: ASSETS.ExodiaSpacecraft,
+      mockupAlt: "Exodia VR Spacecraft",
+      mockups: [
+        { image: ASSETS.ExodiaSpacecraft,    alt: "VR Spacecraft" },
+        { image: ASSETS.ExodiaSpartanHelmet, alt: "Spartan Battle Helmet" },
+        { image: ASSETS.ExodiaSilvanaScepter, alt: "Silvana's Scepter" },
+      ],
+    },
 
-  // Country Scapes
-  {
-    title: translations.projects.countryScape.title,
-    role: translations.projects.countryScape.role,
-    desciption: translations.projects.countryScape.description,
-    information: [
-      {
-        title: translations.projects.information.title.contribution,
-        description:
-          translations.projects.information.countryScape.contribution,
-      },
-      {
-        title: translations.projects.information.title.tools,
-        description: translations.projects.information.countryScape.tools,
-      },
+    // Country Scapes
+    {
+      title: translations.projects.countryScape.title,
+      role: translations.projects.countryScape.role,
+      desciption: translations.projects.countryScape.description,
+      information: [
+        {
+          title: translations.projects.information.title.contribution,
+          description:
+            translations.projects.information.countryScape.contribution,
+        },
+        {
+          title: translations.projects.information.title.tools,
+          description: translations.projects.information.countryScape.tools,
+        },
 
-      {
-        title: translations.projects.information.title.challenge,
-        description: translations.projects.information.countryScape.challenge,
-      },
-    ],
-    sectionId: "countryscape",
-    mockup: ASSETS.CountryScapeMockup,
-    mockupAlt: "CountryScape Mockup",
-    mockups: [
-      { image: ASSETS.CountryScapeMockup1, alt: "CountryScape Mockup 1" },
-      { image: ASSETS.CountryScapeMockup2, alt: "CountryScape Mockup 2" },
-      { image: ASSETS.CountryScapeMockup3, alt: "CoutryScape Mockup 3" },
-    ],
-  },
-];
+        {
+          title: translations.projects.information.title.challenge,
+          description: translations.projects.information.countryScape.challenge,
+        },
+      ],
+      sectionId: "countryscape",
+      mockup: ASSETS.CountryScapeMockup,
+      mockupAlt: "CountryScape Mockup",
+      mockups: [
+        { image: ASSETS.CountryScapeMockup1, alt: "CountryScape Mockup 1" },
+        { image: ASSETS.CountryScapeMockup2, alt: "CountryScape Mockup 2" },
+        { image: ASSETS.CountryScapeMockup3, alt: "CoutryScape Mockup 3" },
+      ],
+    },
+  ];
+}
+
+export const PROJECTS: ProjectInterface[] = getProjects("en");

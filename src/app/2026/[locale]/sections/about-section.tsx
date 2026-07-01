@@ -1,3 +1,5 @@
+"use client";
+
 import Image from "next/image";
 import {
   User,
@@ -11,38 +13,42 @@ import {
   Search,
   Star,
 } from "lucide-react";
+import { useTranslation } from "react-i18next";
 import { cn } from "@/lib/utils";
+import { translate } from "@/lib";
 import { RochenetteLegaspina2026 } from "@/assets/2026";
 import { Typewriter } from "@/components/2026/typewriter";
 
-const CHAPTERS = [
-  {
-    Icon: Clock,
-    title: "The Beginning — 3D Modeling",
-    body: "It started with Blender. From getting proportions right to modeling objects from scratch — I worked my way up to baking realistic textures in Substance Painter. That chapter of hands-on 3D work is where it all began, and where I left it to grow further.",
-  },
-  {
-    Icon: TrendingUp,
-    title: "Growing Into — UI/UX Design",
-    body: "From 3D shapes to screen layouts. I moved into Figma and started designing user flows, wireframes, and high-fidelity screens for real products — learning that good design is just as much about how it works as how it looks.",
-  },
-  {
-    Icon: MapPin,
-    title: "Where I Am Now — Systems Analysis",
-    body: "Before I build anything, I listen — because the right solution means nothing if it's solving the wrong problem. I document requirements, map out business processes, and make sure what the client needs is exactly what gets built — nothing lost between the idea and the product.",
-  },
-];
-
-const SOFT_SKILLS = [
-  { Icon: Lightbulb, label: "Problem Solver" },
-  { Icon: Smile, label: "Creative Thinker" },
-  { Icon: RefreshCw, label: "Adaptable" },
-  { Icon: Users, label: "Collaborative" },
-  { Icon: Search, label: "Detail-Oriented" },
-  { Icon: Star, label: "User-Centered" },
-];
-
 export default function AboutSection2026() {
+  const { t } = useTranslation();
+
+  const CHAPTERS = [
+    {
+      Icon: Clock,
+      title: translate(t, "portfolio2026.about.chapter1Title"),
+      body: translate(t, "portfolio2026.about.chapter1Body"),
+    },
+    {
+      Icon: TrendingUp,
+      title: translate(t, "portfolio2026.about.chapter2Title"),
+      body: translate(t, "portfolio2026.about.chapter2Body"),
+    },
+    {
+      Icon: MapPin,
+      title: translate(t, "portfolio2026.about.chapter3Title"),
+      body: translate(t, "portfolio2026.about.chapter3Body"),
+    },
+  ];
+
+  const SOFT_SKILLS = [
+    { Icon: Lightbulb, label: translate(t, "portfolio2026.about.soft1") },
+    { Icon: Smile, label: translate(t, "portfolio2026.about.soft2") },
+    { Icon: RefreshCw, label: translate(t, "portfolio2026.about.soft3") },
+    { Icon: Users, label: translate(t, "portfolio2026.about.soft4") },
+    { Icon: Search, label: translate(t, "portfolio2026.about.soft5") },
+    { Icon: Star, label: translate(t, "portfolio2026.about.soft6") },
+  ];
+
   return (
     <section
       id="about"
@@ -51,18 +57,18 @@ export default function AboutSection2026() {
       {/* Header */}
       <div className="flex items-center gap-1.5 text-amethyst-500 font-poppins font-bold text-[0.72rem] uppercase tracking-[2.5px] mb-2">
         <User size={13} strokeWidth={1.75} />
-        About Me
+        {translate(t, "portfolio2026.about.eyebrow")}
       </div>
       <h2
         className="font-poppins font-bold text-woodsmoke-900 dark:text-woodsmoke-50 mb-2"
         style={{ fontSize: "clamp(1.7rem,3vw,2.4rem)", lineHeight: 1.2 }}
       >
-        A Creative Mind <span className="text-amethyst-500">Meets</span>{" "}
-        Analytical Thinking
+        {translate(t, "portfolio2026.about.headingPre")}{" "}
+        <span className="text-amethyst-500">{translate(t, "portfolio2026.about.headingHighlight")}</span>{" "}
+        {translate(t, "portfolio2026.about.headingPost")}
       </h2>
       <p className="text-woodsmoke-500 dark:text-woodsmoke-400 text-[0.95rem] leading-[1.75] max-w-140 mb-14">
-        My career didn&apos;t follow a straight line — and that&apos;s precisely
-        what makes my perspective unique.
+        {translate(t, "portfolio2026.about.intro")}
       </p>
 
       <div className="grid grid-cols-1 md:grid-cols-[1fr_1.7fr] gap-8 md:gap-16 items-center">
@@ -105,11 +111,15 @@ export default function AboutSection2026() {
               {/* Badge */}
               <div className="absolute bottom-0 right-0 bg-amethyst-500 text-white px-4 py-3 rounded-[20px_0_20px_0] font-poppins font-bold text-[0.72rem] leading-normal flex flex-col gap-1 transition-transform duration-500 group-hover:-translate-y-0.5 group-hover:-translate-x-0.5">
                 <Typewriter
-                  words={["3D Artist", "UI/UX Designer", "Systems Analyst"]}
+                  words={[
+                    translate(t, "portfolio2026.about.badgeRole1"),
+                    translate(t, "portfolio2026.about.badgeRole2"),
+                    translate(t, "portfolio2026.about.badgeRole3"),
+                  ]}
                   className="min-w-25 inline-block"
                 />
                 <span className="opacity-70 text-[0.65rem]">
-                  Design · Analysis
+                  {translate(t, "portfolio2026.about.badgeSub")}
                 </span>
               </div>
             </div>

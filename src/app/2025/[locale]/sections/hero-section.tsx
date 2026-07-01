@@ -56,7 +56,7 @@ export default function HeroSection() {
               trigger={
                 <Button className="sm:w-48 w-full xl:py-5 py-3.5 bg-amethyst-500 hover:bg-amethyst-400 focus:bg-amethyst-800">
                   <span className="text-amethyst-50 xl:text-large xs:text-normal text-button">
-                    Build My Resume
+                    {translate(t, "home.hero.slogan.resumeButton")}
                   </span>
                 </Button>
               }

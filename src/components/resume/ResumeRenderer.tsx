@@ -3,6 +3,7 @@
 import { RESUME_SECTIONS } from "@/config/resumeData";
 import type { ResumeCategory, ResumeTheme, ResumeMode } from "@/config/resumeData";
 import { HeaderSection } from "./sections/HeaderSection";
+import { SummarySection } from "./sections/SummarySection";
 import { ExperienceSection } from "./sections/ExperienceSection";
 import { ProjectsSection } from "./sections/ProjectsSection";
 import { EducationSection } from "./sections/EducationSection";
@@ -14,6 +15,7 @@ const sectionComponentMap: Record<
   React.ComponentType<{ category: ResumeCategory; theme: ResumeTheme; mode: ResumeMode }>
 > = {
   HeaderSection,
+  SummarySection,
   ExperienceSection,
   ProjectsSection,
   EducationSection,

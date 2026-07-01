@@ -2,9 +2,11 @@
 
 import { useParams, useRouter } from "next/navigation";
 import { motion } from "framer-motion";
+import { useTranslation } from "react-i18next";
 import { FolderOpen, Tag, ChevronRight } from "lucide-react";
 import { cn } from "@/lib/utils";
-import { PROJECTS } from "../data/portfolio-data";
+import { translate } from "@/lib";
+import { getProjects2026 } from "../data/portfolio-data";
 import { thumbBg } from "@/lib/project-utils";
 import Image from "next/image";
 
@@ -14,6 +16,8 @@ export default function ProjectsSection2026() {
   const router = useRouter();
   const params = useParams<{ locale: string }>();
   const locale = params?.locale ?? "en";
+  const { t } = useTranslation();
+  const PROJECTS = getProjects2026(locale);
 
   return (
     <section
@@ -23,17 +27,16 @@ export default function ProjectsSection2026() {
       {/* Header */}
       <div className="flex items-center gap-1.5 text-amethyst-500 font-poppins font-bold text-[0.72rem] uppercase tracking-[2.5px] mb-2">
         <FolderOpen size={13} strokeWidth={1.75} />
-        Projects
+        {translate(t, "portfolio2026.projectsSection.eyebrow")}
       </div>
       <h2
         className="font-poppins font-bold text-woodsmoke-900 dark:text-woodsmoke-50 mb-2"
         style={{ fontSize: "clamp(1.7rem,3vw,2.4rem)", lineHeight: 1.2 }}
       >
-        Things I&apos;ve <span className="text-amethyst-500">Built &amp; Designed</span>
+        {translate(t, "portfolio2026.projectsSection.headingPre")} <span className="text-amethyst-500">{translate(t, "portfolio2026.projectsSection.headingHighlight")}</span>
       </h2>
       <p className="text-woodsmoke-500 dark:text-woodsmoke-400 text-[0.95rem] leading-[1.75] max-w-140 mb-12">
-        A cross-disciplinary portfolio spanning systems analysis, UX design, and
-        3D visualization.
+        {translate(t, "portfolio2026.projectsSection.intro")}
       </p>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -104,7 +107,7 @@ export default function ProjectsSection2026() {
                   )}
                 >
                   <ChevronRight size={12} strokeWidth={2.5} />
-                  Find out more
+                  {translate(t, "portfolio2026.projectsSection.findOutMore")}
                 </span>
               </div>
             </div>

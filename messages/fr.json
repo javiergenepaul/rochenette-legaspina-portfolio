@@ -1,10 +1,611 @@
 {
-  "HomePage": {
-    "title": "French World!",
-    "about": "Go to the about page"
+  "navigation": {
+    "home": "Accueil",
+    "about": "À propos",
+    "project": "Projets",
+    "contact": "Contact",
+    "menu": "Menu"
   },
-  "aboutPage": {
-    "title": "France About Page!",
-    "home": "Go to the home page"
+  "home": {
+    "hero": {
+      "slogan": {
+        "title": {
+          "1": "Concevoir avec un but",
+          "2": ", créer avec passion."
+        },
+        "subtitle": "Bonjour, je suis Rochenette Legaspina 😊 ! Je suis passionnée par la création d'expériences de design significatives et conviviales. Explorez mon portfolio pour voir comment je donne vie à des solutions de design innovantes !",
+        "button": "À propos de moi",
+        "resumeButton": "Créer mon CV"
+      },
+      "banner": {
+        "title": {
+          "1": "CRÉATIVITÉ",
+          "2": "INNOVATION",
+          "3": "SIMPLICITÉ",
+          "4": "IMPACT",
+          "5": "EXPÉRIENCE",
+          "6": "INSPIRATION"
+        },
+        "icons": {
+          "edit": {
+            "title": "Modifier",
+            "designation": "Sublimer le design"
+          },
+          "crop": {
+            "title": "Recadrer",
+            "designation": "Affiner la vision"
+          },
+          "copyLink": {
+            "title": "Copier le lien",
+            "designation": "Partage sans effort"
+          },
+          "component": {
+            "title": "Composant",
+            "designation": "Créer la réutilisabilité"
+          },
+          "move": {
+            "title": "Déplacer",
+            "designation": "S'adapter avec aisance"
+          },
+          "text": {
+            "title": "Texte",
+            "designation": "Façonner votre message"
+          },
+          "ruler": {
+            "title": "Règle",
+            "designation": "Alignement parfait"
+          }
+        }
+      }
+    },
+    "project": {
+      "title": "Projets",
+      "projects": {
+        "1": {
+          "title": "Senior Citizen Discount Claims System",
+          "description": "SC Claims est une plateforme web qui simplifie la validation des réductions pour personnes âgées en permettant aux utilisateurs de téléverser des fichiers Excel contenant les détails SKU."
+        },
+        "2": {
+          "title": "Yoo",
+          "description": "Cette application combine livraison de repas et services de transport sur une seule plateforme. Elle offre des livraisons sécurisées et un transport fiable pour les besoins personnels. Grâce à une interface simple d'utilisation, la gestion des courses et des déplacements devient facile."
+        },
+        "3": {
+          "title": "IQMK",
+          "description": "IQMK Global est une application qui aide les utilisateurs à atteindre leurs objectifs de bien-être et financiers. Elle propose des produits premium à base de raisin Muscadine, dont le produit phare MusNatural, reconnu pour ses bienfaits pour la santé."
+        },
+        "4": {
+          "title": "CountryScape",
+          "description": "Countryscape propose des hôtels aux vues à couper le souffle pour toutes les envies. Que vous recherchiez la tranquillité, l'aventure ou la relaxation. Une réservation facile garantit des vacances sans stress et des souvenirs durables."
+        },
+        "5": {
+          "title": "Exodia Studio — Activités de modélisation 3D",
+          "description": "Un échantillon de mes contributions en modélisation 3D au sein de l'entreprise qui m'a aidée à développer mes compétences en modélisation 3D. Comprend un vaisseau spatial VR, un casque de combat spartiate et le sceptre de Silvana — créés avec Blender et Substance Painter."
+        }
+      },
+      "knowMore": "En savoir plus"
+    }
+  },
+  "about": {
+    "intro": {
+      "title": "Parcours marquant",
+      "paragraph": {
+        "1": "Je suis Rochenette Legaspina, designer UI/UX originaire des Philippines, titulaire d'une licence en génie informatique. Mon approche du design allie créativité et une attention particulière aux solutions centrées sur l'utilisateur.",
+        "2": "J'ai commencé ma carrière dans l'industrie du jeu vidéo en tant que modéliste 3D, puis j'ai élargi mes compétences à la texturation 3D et à la retopologie pendant mes études. Un collègue m'a fait découvrir le design UI/UX, ce qui a suscité mon intérêt pour la création de designs conviviaux et créatifs.",
+        "3": "Après mes études, j'ai acquis une expérience concrète en tant que designer UI/UX au sein d'une entreprise de logiciels. Cherchant à mieux comprendre le processus de développement, j'ai ensuite travaillé comme analyste système, collaborant étroitement avec les clients et les membres de l'équipe. Ce rôle m'a permis de faire le lien entre design et développement, avec l'objectif de créer des designs à la fois esthétiques et porteurs de sens, résolvant de véritables problèmes utilisateurs."
+      }
+    },
+    "work": {
+      "title": "Expérience professionnelle",
+      "experience": {
+        "alliance": {
+          "title": "Analyste système et designer UI/UX",
+          "companyName": "Alliance",
+          "description": {
+            "1": "Rédaction des spécifications fonctionnelles (FSD) et recueil de toutes les exigences.",
+            "2": "Mise en œuvre de solutions pour améliorer l'expérience utilisateur et les fonctionnalités.",
+            "3": "Analyse des besoins des clients et des nouvelles demandes de fonctionnalités.",
+            "4": "Transmission des spécifications détaillées à l'équipe de développement.",
+            "5": "Garantie d'un traitement rapide des tickets de support."
+          },
+          "imageAlt": "Logo Alliance"
+        },
+        "mach95": {
+          "title": "Designer UI/UX",
+          "companyName": "Mach95",
+          "description": {
+            "1": "Conception UI/UX pour des plateformes e-commerce, applications web et logistique.",
+            "2": "Création de designs conviviaux et esthétiques pour améliorer l'expérience utilisateur.",
+            "3": "Développement de logos et de supports de marque en cohérence avec l'identité de l'entreprise.",
+            "4": "Collaboration avec les clients pour répondre à leurs besoins de design."
+          },
+          "imageAlt": "Logo Mach 95"
+        },
+        "exodia": {
+          "title": "Modéliste 3D & Substance Painter",
+          "companyName": "Exodia",
+          "description": {
+            "1": "Création de modèles 3D pour une plateforme VR.",
+            "2": "Application de la retopologie pour optimiser les performances des modèles.",
+            "3": "Utilisation de Substance Painter pour la texturation 3D afin d'améliorer le rendu visuel.",
+            "4": "Garantie d'un traitement rapide des demandes de support."
+          },
+          "imageAlt": "Logo Exodia Game Development Outsourcing"
+        }
+      }
+    },
+    "education": {
+      "title": "Formation",
+      "degree": {
+        "computerEngineering": {
+          "title": "Licence en génie informatique",
+          "school": "Université de Cebu",
+          "description": {
+            "1": "Diplômée d'une licence en génie informatique.",
+            "2": "Projet de thèse approuvé sur une plateforme VR pour condominiums et maisons de ville.",
+            "3": "Contribution à un projet de startup en développement de jeux, création d'une expérience VR pour le musée Casa Gorordo à Cebu City, Philippines."
+          },
+          "imageAlt": "Logo de l'Université de Cebu"
+        }
+      }
+    },
+    "certificate": {
+      "title": "Certificats",
+      "certificates": {
+        "dataAnalytics": {
+          "title": "Cours d'analyse de données",
+          "organization": "Intervenant : CIT-U",
+          "description": {
+            "1": "Participation à un séminaire de 8 heures chez Alliance Software consacré à l'analyse de données.",
+            "2": "Contribution aux discussions d'équipe et traduction des enseignements en analyses de tableaux de bord.",
+            "3": "Acquisition de compétences pratiques en visualisation et analyse de données.",
+            "4": "Collaboration à la création de tableaux de bord percutants et axés sur les données pour des solutions d'affaires.",
+            "5": "Meilleure compréhension des outils d'analyse et de leur application concrète."
+          },
+          "imageAlt": "Logo CIT"
+        },
+        "systemAnalyst": {
+          "title": "Analyste système et designer UI/UX",
+          "organization": "Intervenant : CIT-U",
+          "description": {
+            "1": "Complétion d'un cours de design UI/UX axé sur les fondamentaux et principes.",
+            "2": "Application des concepts du cours à la création de designs mobiles et web.",
+            "3": "Acquisition d'une expérience pratique des processus de design centrés sur l'utilisateur.",
+            "4": "Développement de compétences en wireframing, prototypage et création de parcours utilisateurs.",
+            "5": "Meilleure compréhension du design visuel, de l'utilisabilité et des principes d'interaction."
+          },
+          "imageAlt": "Logo Udemy"
+        }
+      }
+    },
+    "skillAndTools": {
+      "title": "Compétences & Outils"
+    },
+    "letsTalk": {
+      "title": {
+        "1": "Vous avez une idée en tête ?",
+        "2": "Entrons en contact."
+      },
+      "button": {
+        "letsTalk": "Discutons",
+        "downloadMyCV": "Télécharger mon CV"
+      }
+    }
+  },
+  "contact": {
+    "banner": {
+      "title": "Votre avis compte pour moi !",
+      "subtitle": "Que vous soyez à la recherche d'informations ou que vous ayez un projet en tête, laissez-moi un message ci-dessous et je vous répondrai dès que possible."
+    },
+    "form": {
+      "title": "Contactez-moi",
+      "subtitle": "Joignez-moi à tout moment",
+      "input": {
+        "firstName": {
+          "placeholder": "Prénom",
+          "error": {
+            "required": "Le prénom est requis.",
+            "min": "Le prénom doit contenir au moins 2 caractères.",
+            "max": "Le prénom ne doit pas dépasser 50 caractères."
+          }
+        },
+        "lastName": {
+          "placeholder": "Nom",
+          "error": {
+            "required": "Le nom est requis.",
+            "min": "Le nom doit contenir au moins 2 caractères.",
+            "max": "Le nom ne doit pas dépasser 50 caractères."
+          }
+        },
+        "message": {
+          "placeholder": "Écrivez votre message ici",
+          "error": {
+            "required": "Le message est requis.",
+            "max": "Le message ne doit pas dépasser 250 caractères."
+          }
+        },
+        "email": {
+          "placeholder": "Adresse e-mail",
+          "error": {
+            "required": "L'e-mail est requis.",
+            "email": "Adresse e-mail invalide.",
+            "min": "L'e-mail doit contenir au moins 10 caractères.",
+            "max": "L'e-mail ne doit pas dépasser 50 caractères."
+          }
+        }
+      },
+      "toast": {
+        "success": {
+          "title": "E-mail envoyé !",
+          "message": "Votre message a bien été transmis."
+        },
+        "error": "Une erreur est survenue. Veuillez réessayer."
+      },
+      "button": "Envoyer le message"
+    }
+  },
+  "project": {
+    "title": "Projets",
+    "information": {
+      "title": {
+        "contribution": "Contribution",
+        "tools": "Outils",
+        "challenge": "Défi"
+      },
+      "countryScape": {
+        "contribution": {
+          "1": "Recueil des besoins pour aligner l'interface sur les attentes des utilisateurs.",
+          "2": "Collaboration avec les parties prenantes pour identifier les principaux points de friction.",
+          "3": "Optimisation du processus de design pour créer un parcours utilisateur fluide et intuitif.",
+          "4": "Priorité donnée à une interface esthétique et facile à naviguer."
+        },
+        "tools": {
+          "1": "Figma"
+        },
+        "challenge": {
+          "1": "Les sites de réservation en ligne peuvent être difficiles à naviguer.",
+          "2": "Des informations limitées sur les hôtels peuvent frustrer les utilisateurs.",
+          "3": "Un trop grand nombre d'options et des designs surchargés complexifient la réservation.",
+          "4": "Les utilisateurs ont du mal à trouver des informations détaillées et pertinentes pour décider."
+        }
+      },
+      "scClaims": {
+        "contribution": {
+          "1": "A occupé le rôle d'analyste système pour le projet.",
+          "2": "Recueil et analyse des spécifications du client.",
+          "3": "Garantie que toutes les fonctionnalités étaient correctement documentées.",
+          "4": "A conçu une interface conviviale en tant que designer UI/UX.",
+          "5": "Réalisation de tests QA pour garantir le bon fonctionnement du système et le respect des exigences."
+        },
+        "tools": {
+          "1": "Moqups",
+          "2": "Figma"
+        },
+        "challenge": {
+          "1": "Le client souhaitait remplacer l'ancien processus manuel afin d'éviter les erreurs de calcul des réductions.",
+          "2": "L'objectif était de raccourcir le long flux de travail pour rendre le processus plus rapide et précis."
+        }
+      },
+      "yoo": {
+        "contribution": {
+          "1": "Désignée comme designer UI/UX pour le projet.",
+          "2": "Création du flux système et des wireframes à partir de zéro.",
+          "3": "Recherche sur les applications de livraison de repas et de transport pour trouver des idées de design.",
+          "4": "Documentation complète fournie pour le processus de design.",
+          "5": "Fourniture de designs haute fidélité pour une expérience utilisateur intuitive."
+        },
+        "challenge": {
+          "1": "Gestion de plusieurs fonctionnalités tout en garantissant une navigation fluide sans confusion pour les utilisateurs.",
+          "2": "Maintien de la cohérence du design"
+        },
+        "tools": {
+          "1": "Figma"
+        }
+      },
+      "iqmk": {
+        "contribution": {
+          "1": "Chargée de repenser le site pour le rendre plus attrayant et convivial.",
+          "2": "Création d'un flux système clair, de l'inscription à la sélection des forfaits et à l'accès au compte.",
+          "3": "Intégration des éléments de design demandés par le client conformément à ses spécifications.",
+          "4": "Amélioration de l'expérience utilisateur globale et de la navigation pour une interaction fluide."
+        },
+        "tools": {
+          "1": "Figma"
+        },
+        "challenge": {
+          "1": "Garantir la clarté du design tout en préservant l'identité de la marque et son style visuel.",
+          "2": "Maintenir une palette de couleurs cohérente sur toute la plateforme sans compromettre l'utilisabilité.",
+          "3": "Concilier les demandes de design du client avec la nécessité d'une interface conviviale et intuitive."
+        }
+      }
+    },
+    "projects": {
+      "scClaims": {
+        "title": "Senior Citizen Discount Claims System",
+        "role": "Designer UI/UX",
+        "description": "SC Claims est une plateforme web qui simplifie la validation des réductions pour personnes âgées en permettant aux utilisateurs de téléverser des fichiers Excel contenant les détails SKU. Le système valide automatiquement ces données selon des critères prédéfinis, garantissant des remboursements rapides et précis aux pharmacies et hôpitaux. En automatisant ce processus, SC Claims réduit le travail manuel, gagne du temps et assure un flux de remboursement fluide et sans erreur."
+      },
+      "yoo": {
+        "title": "YOO",
+        "role": "Designer UI/UX",
+        "description": "Cette application combine livraison de repas et services de transport sur une seule plateforme. Elle offre des livraisons sécurisées et un transport fiable pour les besoins personnels. Grâce à une interface simple d'utilisation, la gestion des courses et des déplacements devient facile."
+      },
+      "countryScape": {
+        "title": "CountryScape",
+        "role": "Designer UI/UX",
+        "description": "Countryscape propose des hôtels aux vues à couper le souffle pour toutes les envies. Que vous recherchiez la tranquillité, l'aventure ou la relaxation. Une réservation facile garantit des vacances sans stress et des souvenirs durables."
+      },
+      "iqmk": {
+        "title": "IQMK",
+        "role": "Designer UI/UX",
+        "description": "IQMK Global est une application qui aide les utilisateurs à atteindre leurs objectifs de bien-être et financiers. Elle propose des produits premium à base de raisin Muscadine, dont le produit phare MusNatural, reconnu pour ses bienfaits pour la santé. L'application offre une opportunité d'affaires à faible risque via la vente directe, le e-commerce et un plan de marketing de réseau, aidant les utilisateurs à atteindre la santé, la liberté financière et une meilleure qualité de vie."
+      }
+    },
+    "role": "Rôle : {role}",
+    "banner": {
+      "title": "Contactez-moi",
+      "description": "Que vous soyez à la recherche d'informations ou que vous ayez un projet en tête, laissez-moi un message ci-dessous et je vous répondrai dès que possible."
+    },
+    "button": "Discutons"
+  },
+  "footer": {
+    "slogan": "Transformer des idées en designs percutants",
+    "copyright": "© 2025 Rochenette Legaspina | Développé par",
+    "developer": "Gene Paul Mar Javier"
+  },
+  "portfolio2026": {
+    "nav": {
+      "about": "À propos",
+      "skills": "Compétences",
+      "experience": "Expérience",
+      "education": "Formation",
+      "projects": "Projets",
+      "books": "Livres",
+      "approach": "Approche",
+      "explorer": "Explorateur",
+      "letsTalk": "Discutons",
+      "openToOpportunities": "Ouverte à de nouvelles opportunités"
+    },
+    "footer": {
+      "builtWith": "Conçu avec",
+      "andCoffee": "& beaucoup de café"
+    },
+    "hero": {
+      "headingLine1": "Concevoir des systèmes.",
+      "headingLine2": "Résoudre des problèmes.",
+      "headingLine3": "Créer un impact.",
+      "description": "Je suis analyste système avec des racines en modélisation 3D et en design UI/UX — je combine intuition créative et précision analytique pour créer des solutions élégantes et efficaces.",
+      "pill3d": "Modélisation 3D",
+      "pillUiux": "Design UI/UX",
+      "pillSystems": "Analyste système",
+      "ctaWork": "Voir mon travail",
+      "ctaResume": "Créer mon CV",
+      "statDisciplines": "Disciplines",
+      "statProjects": "Projets",
+      "statTools": "Outils",
+      "statCuriosity": "Curiosité",
+      "scroll": "Défiler"
+    },
+    "about": {
+      "eyebrow": "À propos de moi",
+      "headingPre": "Un esprit créatif",
+      "headingHighlight": "rencontre",
+      "headingPost": "une pensée analytique",
+      "intro": "Ma carrière n'a pas suivi une ligne droite — et c'est précisément ce qui rend ma perspective unique.",
+      "badgeSub": "Design · Analyse",
+      "badgeRole1": "Artiste 3D",
+      "badgeRole2": "Designer UI/UX",
+      "badgeRole3": "Analyste système",
+      "chapter1Title": "Les débuts — Modélisation 3D",
+      "chapter1Body": "Tout a commencé avec Blender. Des proportions justes à la modélisation d'objets à partir de zéro, j'ai progressé jusqu'à cuire des textures réalistes dans Substance Painter. Ce chapitre de travail 3D pratique est là où tout a commencé, et là où je l'ai laissé pour continuer à évoluer.",
+      "chapter2Title": "Évolution — Design UI/UX",
+      "chapter2Body": "Des formes 3D aux interfaces d'écran. Je suis passée à Figma et j'ai commencé à concevoir des parcours utilisateurs, des wireframes et des écrans haute fidélité pour de vrais produits — en apprenant qu'un bon design tient autant à son fonctionnement qu'à son apparence.",
+      "chapter3Title": "Où j'en suis aujourd'hui — Analyse système",
+      "chapter3Body": "Avant de construire quoi que ce soit, j'écoute — car la bonne solution ne vaut rien si elle résout le mauvais problème. Je documente les exigences, cartographie les processus métier et m'assure que ce dont le client a besoin est exactement ce qui est construit — sans rien perdre entre l'idée et le produit.",
+      "soft1": "Résolution de problèmes",
+      "soft2": "Pensée créative",
+      "soft3": "Adaptabilité",
+      "soft4": "Esprit collaboratif",
+      "soft5": "Souci du détail",
+      "soft6": "Centrée sur l'utilisateur"
+    },
+    "skills": {
+      "eyebrow": "Compétences & Outils",
+      "headingPre": "Ma",
+      "headingHighlight": "Boîte à outils",
+      "intro": "Outils et technologies que j'ai utilisés en modélisation 3D, en design et en analyse système.",
+      "category3d": "3D & Créativité",
+      "categoryUiux": "UI/UX & Design",
+      "categorySystems": "Systèmes & Analyse"
+    },
+    "work": {
+      "eyebrow": "expérience",
+      "eyebrowFlag": "--liste",
+      "headingPre": "Parcours",
+      "headingHighlight": "professionnel",
+      "intro": "Rôles et responsabilités qui ont façonné mon expertise en analyse système, design et art 3D.",
+      "tagSystemsAnalysis": "Analyse système",
+      "tagUiuxDesign": "Design UI/UX",
+      "tagProductDesign": "Design produit",
+      "tagFigma": "Figma",
+      "tagBrandIdentity": "Identité de marque",
+      "tag3dModeling": "Modélisation 3D",
+      "tagSubstancePainter": "Substance Painter",
+      "tagBlender": "Blender"
+    },
+    "education": {
+      "eyebrow": "formation",
+      "eyebrowFlag": "--détaillé",
+      "headingPre": "Parcours",
+      "headingHighlight": "académique",
+      "intro": "Formation académique et certifications professionnelles qui ont bâti les fondations techniques de mon travail.",
+      "degreeLabel": "diplôme",
+      "certificationsLabel": "certifications"
+    },
+    "certificationsPage": {
+      "eyebrow": "Certifications",
+      "headingPre": "Compétences",
+      "headingHighlight": "validées",
+      "intro": "Certifications professionnelles qui complètent mon expérience pratique par un apprentissage structuré."
+    },
+    "projectsSection": {
+      "eyebrow": "Projets",
+      "headingPre": "Ce que j'ai",
+      "headingHighlight": "conçu & réalisé",
+      "intro": "Un portfolio interdisciplinaire couvrant l'analyse système, le design UX et la visualisation 3D.",
+      "findOutMore": "En savoir plus"
+    },
+    "projectDetail": {
+      "overviewHeadingPre": "Aperçu",
+      "overviewHeadingHighlight": "du projet",
+      "roleLabel": "Rôle",
+      "typeLabel": "Type",
+      "aboutLabel": "À propos",
+      "techToolsLabel": "Technologies & Outils",
+      "allProjectsLabel": "Tous les projets",
+      "backToProjects": "Retour aux projets"
+    },
+    "projects": {
+      "scClaims": {
+        "type": "UI/UX",
+        "description": "Une plateforme web qui simplifie la validation des réductions pour personnes âgées en permettant aux utilisateurs de téléverser des fichiers Excel contenant les détails SKU. Le système valide automatiquement les données, garantissant des remboursements rapides et précis aux pharmacies et hôpitaux."
+      },
+      "yoo": {
+        "type": "UI/UX",
+        "description": "Une application qui combine livraison de repas et services de transport sur une seule plateforme. Offre des livraisons sécurisées et un transport fiable pour les besoins personnels, avec une interface simple pour gérer courses et déplacements."
+      },
+      "iqmk": {
+        "type": "UI/UX",
+        "description": "Une application qui aide les utilisateurs à atteindre leurs objectifs de bien-être et financiers. Propose des produits premium à base de raisin Muscadine et une opportunité d'affaires à faible risque via la vente directe, le e-commerce et le marketing de réseau."
+      },
+      "countryscape": {
+        "type": "UI/UX",
+        "description": "Une plateforme de réservation d'hôtels proposant des établissements aux vues à couper le souffle pour toutes les envies — tranquillité, aventure ou relaxation. Une réservation facile garantit des vacances sans stress."
+      },
+      "exodia3dGameAssets": {
+        "type": "3D / Visualisation",
+        "description": "Un échantillon de mes contributions en modélisation 3D au sein de l'entreprise qui m'a aidée à développer mes compétences en modélisation 3D.",
+        "credit": "En collaboration avec Exodia Game Development Studio",
+        "carouselLabel": "Activités quotidiennes au studio"
+      },
+      "clinictrack": {
+        "type": "Application web",
+        "description": "Système de gestion clinique de bout en bout couvrant les dossiers patients, les rendez-vous, la facturation et les rapports."
+      },
+      "lumina": {
+        "type": "UI/UX",
+        "description": "Audit UX complet et refonte d'une plateforme e-commerce, réduisant l'abandon de panier de 34 % lors de tests A/B."
+      },
+      "archvizStudio": {
+        "type": "3D / Visualisation",
+        "description": "Visualisations 3D photoréalistes de produits pour une marque de mobilier — modélisées, texturées et rendues dans Blender."
+      },
+      "flowmap": {
+        "type": "Systèmes",
+        "description": "Cartographie et documentation des processus AS-IS / TO-BE pour une entreprise logistique, identification de 6 points de blocage et réduction du temps de cycle de 22 %."
+      },
+      "portfolio2025": {
+        "type": "Full-Stack",
+        "description": "Conception et développement de mon portfolio 2025 avec Next.js 15, Tailwind v4 et une architecture de routage multi-année personnalisée."
+      }
+    },
+    "books": {
+      "eyebrow": "Liste de lecture",
+      "headingPre": "Les livres qui",
+      "headingHighlight": "m'ont façonnée",
+      "intro": "Les ouvrages qui ont profondément changé ma façon de penser le design, les systèmes et les gens.",
+      "designOfEverydayThings": {
+        "tag": "Design UX",
+        "insight": "M'a appris que <em>le bon design est invisible</em> — quand les choses fonctionnent, on ne remarque pas le design ; on ne le remarque que lorsqu'il échoue.",
+        "takeaway": "Concevoir pour la découvrabilité et le retour d'information"
+      },
+      "thinkingFastAndSlow": {
+        "tag": "Sciences de la décision",
+        "insight": "A transformé mon approche de la recherche utilisateur — comprendre que les utilisateurs fonctionnent d'abord par <em>intuition</em>, puis par logique.",
+        "takeaway": "Concevoir pour la pensée de Système 1"
+      },
+      "atomicHabits": {
+        "tag": "Maîtrise de soi",
+        "insight": "De petites améliorations constantes s'accumulent avec le temps — <em>on ne s'élève pas à la hauteur de ses objectifs, on retombe au niveau de ses systèmes</em>.",
+        "takeaway": "Les systèmes l'emportent sur les objectifs"
+      },
+      "cleanCode": {
+        "tag": "Ingénierie",
+        "insight": "Même en tant que designer-analyste, comprendre les principes du code propre a fait de moi une <em>meilleure penseuse systémique</em> et collaboratrice.",
+        "takeaway": "La clarté avant l'ingéniosité"
+      },
+      "leanStartup": {
+        "tag": "Stratégie produit",
+        "insight": "Les cycles Construire-Mesurer-Apprendre ont façonné la façon dont j'aborde <em>chaque livrable de design et d'analyse</em> comme une hypothèse à tester.",
+        "takeaway": "L'apprentissage validé plutôt que les métriques de vanité"
+      }
+    },
+    "approachSection": {
+      "eyebrow": "Mon approche",
+      "headingPre": "Comment je",
+      "headingHighlight": "travaille",
+      "intro": "Un processus structuré et itératif qui garde les parties prenantes alignées et les solutions ancrées dans la réalité."
+    },
+    "approach": {
+      "discover": {
+        "title": "Découvrir",
+        "description": "Entretiens avec les parties prenantes, analyse concurrentielle et recueil des exigences. Je pose des questions inconfortables jusqu'à ce que le vrai problème soit visible."
+      },
+      "design": {
+        "title": "Concevoir",
+        "description": "Croquis low-fi → wireframes → prototypes interactifs. Chaque itération validée avec de vrais utilisateurs avant de passer à la haute fidélité."
+      },
+      "analyze": {
+        "title": "Analyser",
+        "description": "Modèles de processus, flux de données et spécifications système. Traduire des exigences floues en documentation précise et exploitable."
+      },
+      "deliver": {
+        "title": "Livrer",
+        "description": "Spécifications prêtes pour la transmission, collaboration avec les développeurs et analyse post-lancement. Le travail ne s'arrête pas à la livraison — il y commence."
+      }
+    },
+    "gallery": {
+      "eyebrow": "La vie au-delà de l'écran",
+      "headingPre": "L'",
+      "headingHighlight": "exploratrice",
+      "headingPost": "en moi",
+      "intro": "En dehors du travail, je pars à l'aventure pour aller plus loin — car les meilleures expériences sont souvent celles qu'on a failli ne pas vivre."
+    },
+    "contact": {
+      "eyebrow": "Contact",
+      "headingPre": "Travaillons",
+      "headingHighlight": "ensemble",
+      "intro": "Que vous ayez un projet en tête ou simplement envie d'échanger — j'aimerais beaucoup avoir de vos nouvelles.",
+      "openTo": "Je suis actuellement ouverte aux projets freelance, aux postes à temps plein et aux collaborations en analyse système, design UI/UX et visualisation 3D.",
+      "emailLabel": "E-mail",
+      "emailSub": "Idéal pour les demandes de projet",
+      "linkedinLabel": "LinkedIn",
+      "linkedinSub": "Connectons-nous professionnellement",
+      "formTitle": "Envoyer un message",
+      "firstNameLabel": "Prénom",
+      "firstNamePlaceholder": "Votre prénom",
+      "lastNameLabel": "Nom",
+      "lastNamePlaceholder": "Votre nom",
+      "emailFieldLabel": "E-mail",
+      "emailPlaceholder": "votre@email.com",
+      "messageLabel": "Message",
+      "messagePlaceholder": "Parlez-moi de votre projet ou de votre idée…",
+      "sendButton": "Envoyer le message",
+      "errorFirstNameMin": "Le prénom doit contenir au moins 2 caractères.",
+      "errorFirstNameMax": "Le prénom ne doit pas dépasser 50 caractères.",
+      "errorLastNameMin": "Le nom doit contenir au moins 2 caractères.",
+      "errorLastNameMax": "Le nom ne doit pas dépasser 50 caractères.",
+      "errorLastNameRequired": "Le nom est requis.",
+      "errorEmailInvalid": "Veuillez saisir une adresse e-mail valide.",
+      "errorEmailMin": "L'e-mail doit contenir au moins 10 caractères.",
+      "errorEmailMax": "L'e-mail ne doit pas dépasser 50 caractères.",
+      "errorMessageMax": "Le message ne doit pas dépasser 250 caractères.",
+      "errorMessageRequired": "Le message est requis.",
+      "toastTitle": "Message envoyé !",
+      "toastDescription": "Merci de m'avoir contactée. Je vous répondrai bientôt."
+    },
+    "stubPages": {
+      "projects": "Projets",
+      "contact": "Contact"
+    }
   }
 }

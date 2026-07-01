@@ -53,7 +53,7 @@ export default function Footer() {
           id="social-links"
           className="flex sm:flex-row flex-col sm:justify-between gap-6 justify-start sm:items-center items-start"
         >
-          <h3 className="xl:text-h2 lg:text-h3 sm:text-h4 text-h5 md:font-semibold sm:w-[347px] md:w-full font-semibold text-scorpion-500 dark:text-woodsmoke-50">
+          <h3 className="xl:text-h2 lg:text-h3 sm:text-h4 text-h5 md:font-semibold sm:w-86.75 md:w-full font-semibold text-scorpion-500 dark:text-woodsmoke-50">
             {translate(t, "footer.slogan")}
           </h3>
           <ul className="flex items-center gap-6">
@@ -113,7 +113,7 @@ export default function Footer() {
           <span className="font-bold text-amethyst-500 dark:text-amethyst-500 xl:text-normal text-caption">
             <LinkPreview
               target="_blank"
-              url="https://paul-javier-portfolio.netlify.app"
+              url="https://gene-paul-mar-javier.dev/"
               className="font-bold text-amethyst-500 dark:text-amethyst-500 xl:text-normal text-caption"
               theme={resolvedTheme}
             >
