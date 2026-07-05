@@ -112,7 +112,7 @@ export default function EducationSection2026About() {
             <span className="flex-1 h-px bg-white/7" />
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div className={cn("grid grid-cols-1 gap-4", CERTIFICATION_EXPERIENCE.length > 1 && "md:grid-cols-2")}>
             {CERTIFICATION_EXPERIENCE.map((cert, index) => (
               <div
                 key={index}

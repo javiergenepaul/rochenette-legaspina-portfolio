@@ -9,7 +9,7 @@ export default function TestimonialsSection2026() {
       className="py-24 px-[7%] bg-woodsmoke-100 dark:bg-woodsmoke-900"
     >
       {/* Header */}
-      <div className="flex items-center gap-1.5 text-amethyst-500 font-poppins font-bold text-[0.72rem] uppercase tracking-[2.5px] mb-2">
+      <div className="flex items-center gap-1.5 text-amethyst-500 dark:text-amethyst-400 font-poppins font-bold text-[0.72rem] uppercase tracking-[2.5px] mb-2">
         <MessageCircle size={13} strokeWidth={1.75} />
         Reviews
       </div>

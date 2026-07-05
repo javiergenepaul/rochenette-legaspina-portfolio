@@ -17,7 +17,7 @@ export default function CertificationSection2026() {
       id="certifications"
       className="py-24 px-[7%] bg-woodsmoke-50 dark:bg-woodsmoke-900"
     >
-      <div className="flex items-center gap-1.5 text-amethyst-500 font-poppins font-bold text-[0.72rem] uppercase tracking-[2.5px] mb-2">
+      <div className="flex items-center gap-1.5 text-amethyst-500 dark:text-amethyst-400 font-poppins font-bold text-[0.72rem] uppercase tracking-[2.5px] mb-2">
         <Award size={13} strokeWidth={1.75} />
         {translate(t, "portfolio2026.certificationsPage.eyebrow")}
       </div>
@@ -31,7 +31,7 @@ export default function CertificationSection2026() {
         {translate(t, "portfolio2026.certificationsPage.intro")}
       </p>
 
-      <div className="flex flex-col gap-5 xl:w-10/12 lg:w-11/12 w-full mx-auto">
+      <div className="flex flex-col gap-5 w-full">
         {CERTIFICATION_EXPERIENCE.map((cert, index) => (
           <div
             key={index}

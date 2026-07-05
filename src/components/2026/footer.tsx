@@ -13,11 +13,11 @@ const SOCIAL = [
 ] as const;
 
 export default function Footer2026() {
-  const { theme } = useTheme();
+  const { resolvedTheme } = useTheme();
   const { t } = useTranslation();
   const [mounted, setMounted] = useState(false);
   useEffect(() => { setMounted(true); }, []);
-  const isDark = mounted && theme === "dark";
+  const isDark = mounted && resolvedTheme === "dark";
 
   return (
     <footer
@@ -40,7 +40,7 @@ export default function Footer2026() {
             fill="white" letterSpacing="-1"
           >RL</text>
         </svg>
-        <span className="font-poppins font-semibold text-small text-woodsmoke-600 dark:text-woodsmoke-400">
+        <span className="font-poppins font-semibold text-small text-woodsmoke-900 dark:text-woodsmoke-50">
           Rochenette Legaspina
         </span>
       </div>

@@ -55,7 +55,7 @@ export default function AboutSection2026() {
       className="py-24 px-[7%] bg-white dark:bg-woodsmoke-800"
     >
       {/* Header */}
-      <div className="flex items-center gap-1.5 text-amethyst-500 font-poppins font-bold text-[0.72rem] uppercase tracking-[2.5px] mb-2">
+      <div className="flex items-center gap-1.5 text-amethyst-500 dark:text-amethyst-400 font-poppins font-bold text-[0.72rem] uppercase tracking-[2.5px] mb-2">
         <User size={13} strokeWidth={1.75} />
         {translate(t, "portfolio2026.about.eyebrow")}
       </div>
@@ -118,7 +118,7 @@ export default function AboutSection2026() {
                   ]}
                   className="min-w-25 inline-block"
                 />
-                <span className="opacity-70 text-[0.65rem]">
+                <span className="text-[0.65rem]">
                   {translate(t, "portfolio2026.about.badgeSub")}
                 </span>
               </div>
@@ -145,9 +145,9 @@ export default function AboutSection2026() {
                 />
               </div>
               <div>
-                <h4 className="font-poppins font-bold text-[0.87rem] text-woodsmoke-900 dark:text-woodsmoke-50 mb-1">
+                <h3 className="font-poppins font-bold text-[0.87rem] text-woodsmoke-900 dark:text-woodsmoke-50 mb-1">
                   {title}
-                </h4>
+                </h3>
                 <p className="text-[0.82rem] text-woodsmoke-500 dark:text-woodsmoke-400 leading-[1.6] m-0">
                   {body}
                 </p>

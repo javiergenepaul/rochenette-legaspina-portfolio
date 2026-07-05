@@ -25,7 +25,7 @@ export default function BooksSection2026() {
       className="py-24 px-[7%] bg-white dark:bg-woodsmoke-800"
     >
       {/* Header */}
-      <div className="flex items-center gap-1.5 text-amethyst-500 font-poppins font-bold text-[0.72rem] uppercase tracking-[2.5px] mb-2">
+      <div className="flex items-center gap-1.5 text-amethyst-500 dark:text-amethyst-400 font-poppins font-bold text-[0.72rem] uppercase tracking-[2.5px] mb-2">
         <BookOpen size={13} strokeWidth={1.75} />
         {translate(t, "portfolio2026.books.eyebrow")}
       </div>
@@ -78,7 +78,7 @@ export default function BooksSection2026() {
                 {title}
               </h3>
 
-              <div className="flex items-center gap-1 text-amethyst-500 font-poppins font-semibold text-[0.78rem]">
+              <div className="flex items-center gap-1 text-amethyst-500 dark:text-amethyst-400 font-poppins font-semibold text-[0.78rem]">
                 <User2 size={13} strokeWidth={1.75} />
                 {author}
               </div>

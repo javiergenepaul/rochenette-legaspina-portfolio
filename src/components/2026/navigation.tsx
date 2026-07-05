@@ -64,11 +64,11 @@ function FlagFR() {
 }
 
 export default function Navigation2026() {
-  const { theme, setTheme } = useTheme();
+  const { resolvedTheme, setTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
   useEffect(() => { setMounted(true); }, []);
   // isDark defaults to false so server & initial client render match (hydration safe)
-  const isDark = mounted && theme === "dark";
+  const isDark = mounted && resolvedTheme === "dark";
   const router = useRouter();
   const pathname = usePathname();
   const { t } = useTranslation();
@@ -126,7 +126,7 @@ export default function Navigation2026() {
         )}
       >
         {/* Logo */}
-        <a href={navHref("#hero")} className="shrink-0">
+        <a href={navHref("#hero")} className="shrink-0" aria-label="RL — Home">
           <svg width="40" height="40" viewBox="0 0 64 64" fill="none">
             <circle cx="32" cy="32" r="31" fill="#D32F2F"/>
             <circle cx="32" cy="32" r="25" stroke="rgba(255,255,255,0.25)" strokeWidth="0.75"/>
@@ -192,7 +192,7 @@ export default function Navigation2026() {
                   ? "bg-amethyst-500 text-white border-amethyst-500"
                   : isDark
                     ? "bg-amethyst-500/12 border-amethyst-500/30 text-amethyst-300 hover:bg-amethyst-500 hover:text-white"
-                    : "bg-amethyst-50 border-amethyst-100 text-amethyst-500 hover:bg-amethyst-500 hover:text-white"
+                    : "bg-amethyst-50 border-amethyst-100 text-amethyst-600 hover:bg-amethyst-500 hover:text-white"
               )}
             >
               {activeLocale.flag}
@@ -264,6 +264,8 @@ export default function Navigation2026() {
           <button
             onClick={toggleMobileMenu}
             className="lg:hidden p-1 text-amethyst-500"
+            aria-label={isMobileMenuOpen ? "Close menu" : "Open menu"}
+            aria-expanded={isMobileMenuOpen}
           >
             {isMobileMenuOpen ? <X size={22} /> : <AlignJustify size={22} />}
           </button>

@@ -94,12 +94,14 @@ export default function MockupCarousel({
           <>
             <button
               onClick={prev}
+              aria-label="Previous mockup"
               className="absolute left-2 top-1/2 -translate-y-1/2 z-10 w-7 h-7 rounded-full bg-black/40 backdrop-blur-sm border border-white/15 text-white flex items-center justify-center hover:bg-black/60 transition-colors"
             >
               <ChevronLeft size={14} strokeWidth={2} />
             </button>
             <button
               onClick={next}
+              aria-label="Next mockup"
               className="absolute right-2 top-1/2 -translate-y-1/2 z-10 w-7 h-7 rounded-full bg-black/40 backdrop-blur-sm border border-white/15 text-white flex items-center justify-center hover:bg-black/60 transition-colors"
             >
               <ChevronRight size={14} strokeWidth={2} />
@@ -114,6 +116,8 @@ export default function MockupCarousel({
             <button
               key={m.label}
               onClick={() => go(i)}
+              aria-label={`Go to ${m.label}`}
+              aria-current={i === slide}
               className={cn(
                 "transition-all duration-200 rounded-full",
                 i === slide

@@ -96,7 +96,7 @@ export default function GallerySection() {
   return (
     <section id="gallery" className="py-24 bg-woodsmoke-100 dark:bg-woodsmoke-900 overflow-x-hidden">
       <div className="px-[7%]">
-        <div className="flex items-center gap-1.5 text-amethyst-500 font-poppins font-bold text-[0.72rem] uppercase tracking-[2.5px] mb-2">
+        <div className="flex items-center gap-1.5 text-amethyst-500 dark:text-amethyst-400 font-poppins font-bold text-[0.72rem] uppercase tracking-[2.5px] mb-2">
           <Compass size={13} strokeWidth={1.75} />
           {translate(t, "portfolio2026.gallery.eyebrow")}
         </div>
