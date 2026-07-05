@@ -1,12 +1,16 @@
+import { headers } from "next/headers";
 import { ThemeProviders } from "@/components/common/theme-providers";
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
+  const headersList = await headers();
+  const lang = headersList.get("x-locale") ?? "en";
+
   return (
-    <html suppressHydrationWarning>
+    <html lang={lang} suppressHydrationWarning>
       <body suppressHydrationWarning>
         <ThemeProviders>{children}</ThemeProviders>
       </body>

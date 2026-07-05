@@ -28,7 +28,7 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://rochenette-legaspina-portfolio.vercel.app"),
   title: "Rochenette Legaspina - 2026",
   description: "Rochenette Legaspina Portfolio 2026",
-  icons: { icon: "/favicon-2026.svg" },
+  icons: { icon: "/favicon-2026.svg", apple: "/apple-touch-icon-2026.png" },
   themeColor: [
     { media: "(prefers-color-scheme: light)", color: "#D32F2F" },
     { media: "(prefers-color-scheme: dark)",  color: "#3d0000" },

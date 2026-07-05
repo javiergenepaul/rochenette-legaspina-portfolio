@@ -33,7 +33,16 @@ export function middleware(request: NextRequest) {
     }
   }
 
-  return NextResponse.next();
+  // Expose the resolved locale to the root layout (via headers()) so
+  // <html lang> can be set server-side on first render, not just client-side.
+  const segments = pathname.split("/").filter(Boolean);
+  const localeSegment = segments[1];
+  const locale = locales.includes(localeSegment ?? "") ? localeSegment! : defaultLocale;
+
+  const requestHeaders = new Headers(request.headers);
+  requestHeaders.set("x-locale", locale);
+
+  return NextResponse.next({ request: { headers: requestHeaders } });
 }
 
 export const config = {
